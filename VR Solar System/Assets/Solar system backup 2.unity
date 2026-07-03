@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 335489780}
   - component: {fileID: 335489779}
   - component: {fileID: 335489778}
+  - component: {fileID: 896233790}
   m_Layer: 0
   m_Name: Saturn
   m_TagString: Untagged
@@ -584,6 +585,7 @@ GameObject:
   - component: {fileID: 348623528}
   - component: {fileID: 348623527}
   - component: {fileID: 348623526}
+  - component: {fileID: 786579303}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -1709,6 +1711,7 @@ GameObject:
   - component: {fileID: 678269467}
   - component: {fileID: 678269466}
   - component: {fileID: 678269465}
+  - component: {fileID: 362950628}
   m_Layer: 0
   m_Name: Neptune
   m_TagString: Untagged
@@ -2271,6 +2274,7 @@ GameObject:
   - component: {fileID: 963597750}
   - component: {fileID: 963597749}
   - component: {fileID: 963597748}
+  - component: {fileID: 219540831}
   m_Layer: 0
   m_Name: Mercury
   m_TagString: Untagged
@@ -2481,6 +2485,7 @@ GameObject:
   - component: {fileID: 1099556163}
   - component: {fileID: 1099556162}
   - component: {fileID: 1099556161}
+  - component: {fileID: 395310485}
   m_Layer: 0
   m_Name: Uranus
   m_TagString: Untagged
@@ -2665,6 +2670,7 @@ GameObject:
   - component: {fileID: 1358837747}
   - component: {fileID: 1358837746}
   - component: {fileID: 1358837745}
+  - component: {fileID: 126855092}
   m_Layer: 0
   m_Name: Jupiter
   m_TagString: Untagged
@@ -3846,6 +3852,174 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786579303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348623525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 1
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &219540831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963597747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 0
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &126855092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358837744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 2
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &896233790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335489777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 3
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &395310485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099556160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 4
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &362950628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678269464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 5
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

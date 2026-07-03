@@ -255,7 +255,9 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
                 continue;
             }
 
-            if (!GetLayerInfo(hit.collider.transform, out string foundName, out string foundDescription, out Color foundColor))
+            string hitPlanetName = GetPlanetNameFromLayerHit(hit.collider.transform, "");
+
+            if (!GetLayerInfo(hit.collider.transform, hitPlanetName, out string foundName, out string foundDescription, out Color foundColor))
             {
                 continue;
             }
@@ -263,7 +265,7 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
             if (hit.distance < closestDistance)
             {
                 closestDistance = hit.distance;
-                planetName = GetPlanetNameFromLayerHit(hit.collider.transform, foundName);
+                planetName = hitPlanetName;
                 layerName = foundName;
                 layerDescription = foundDescription;
                 layerColor = foundColor;
@@ -292,6 +294,36 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
                 return "EARTH";
             }
 
+            if (n.Contains("mercury"))
+            {
+                return "MERCURY";
+            }
+
+            if (n.Contains("mars"))
+            {
+                return "MARS";
+            }
+
+            if (n.Contains("jupiter"))
+            {
+                return "JUPITER";
+            }
+
+            if (n.Contains("saturn"))
+            {
+                return "SATURN";
+            }
+
+            if (n.Contains("uranus"))
+            {
+                return "URANUS";
+            }
+
+            if (n.Contains("neptune"))
+            {
+                return "NEPTUNE";
+            }
+
             current = current.parent;
         }
 
@@ -311,6 +343,7 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
 
     bool GetLayerInfo(
         Transform hitTransform,
+        string planetName,
         out string layerName,
         out string layerDescription,
         out Color layerColor
@@ -325,6 +358,100 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
         while (current != null)
         {
             string n = current.name.ToLower().Replace(" ", "");
+
+            // Gas giants (Jupiter, Saturn) are checked first: their generic
+            // "Atmosphere"/"Core" object names would otherwise be misread as
+            // Venus's CO2 atmosphere or Earth's core further down.
+            if (planetName == "JUPITER" || planetName == "SATURN")
+            {
+                if (n.Contains("metallichydrogen"))
+                {
+                    layerName = "METALLIC H2";
+                    layerDescription = "Metallic liquid hydrogen";
+                    layerColor = new Color(0.55f, 0.55f, 0.75f);
+                    return true;
+                }
+
+                if (n.Contains("molecularhydrogen"))
+                {
+                    layerName = "MOLECULAR H2";
+                    layerDescription = "Liquid hydrogen layer";
+                    layerColor = new Color(0.80f, 0.70f, 0.55f);
+                    return true;
+                }
+
+                if (n.Contains("atmosphere"))
+                {
+                    layerName = "ATMOSPHERE";
+                    layerDescription = "H2 / He cloud bands";
+                    layerColor = new Color(0.90f, 0.82f, 0.60f);
+                    return true;
+                }
+
+                if (n.Contains("core"))
+                {
+                    layerName = "CORE";
+                    layerDescription = planetName == "JUPITER" ? "Dense rock/ice core" : "Rock and ice core";
+                    layerColor = new Color(0.40f, 0.30f, 0.25f);
+                    return true;
+                }
+            }
+
+            // Ice giants (Uranus, Neptune).
+            if (planetName == "URANUS" || planetName == "NEPTUNE")
+            {
+                if (n.Contains("icymantle"))
+                {
+                    layerName = "ICY MANTLE";
+                    layerDescription = "Water-ammonia ices";
+                    layerColor = planetName == "URANUS" ? new Color(0.25f, 0.55f, 0.65f) : new Color(0.18f, 0.30f, 0.60f);
+                    return true;
+                }
+
+                if (n.Contains("atmosphere"))
+                {
+                    layerName = "ATMOSPHERE";
+                    layerDescription = "H2 / He / methane";
+                    layerColor = planetName == "URANUS" ? new Color(0.55f, 0.85f, 0.90f) : new Color(0.30f, 0.45f, 0.85f);
+                    return true;
+                }
+
+                if (n.Contains("core"))
+                {
+                    layerName = "CORE";
+                    layerDescription = "Small rocky core";
+                    layerColor = new Color(0.33f, 0.29f, 0.27f);
+                    return true;
+                }
+            }
+
+            // Small rocky planets (Mercury, Mars).
+            if (planetName == "MERCURY" || planetName == "MARS")
+            {
+                if (n.Contains("core"))
+                {
+                    layerName = "IRON CORE";
+                    layerDescription = planetName == "MERCURY" ? "Huge solid iron core" : "Iron-sulfide core";
+                    layerColor = planetName == "MERCURY" ? new Color(0.65f, 0.65f, 0.70f) : new Color(0.55f, 0.20f, 0.10f);
+                    return true;
+                }
+
+                if (n.Contains("mantle"))
+                {
+                    layerName = "MANTLE";
+                    layerDescription = "Rocky silicate layer";
+                    layerColor = planetName == "MERCURY" ? new Color(0.45f, 0.30f, 0.20f) : new Color(0.80f, 0.40f, 0.15f);
+                    return true;
+                }
+
+                if (n.Contains("crust"))
+                {
+                    layerName = "CRUST";
+                    layerDescription = planetName == "MERCURY" ? "Thin rocky shell" : "Thin rusty crust";
+                    layerColor = planetName == "MERCURY" ? new Color(0.55f, 0.50f, 0.45f) : new Color(0.72f, 0.35f, 0.20f);
+                    return true;
+                }
+            }
 
             // Keep these short so they fit inside the hologram.
             if (n.Contains("carbondioxide") || n.Contains("co2") || n.Contains("atmosphere"))
@@ -441,15 +568,19 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
             n.Contains("crust") ||
             n.Contains("mantle") ||
             n.Contains("rockymantle") ||
+            n.Contains("icymantle") ||
             n.Contains("outercore") ||
             n.Contains("innercore") ||
             n.Contains("metalliccore") ||
+            n.Contains("core") ||
             n.Contains("carbondioxide") ||
             n.Contains("co2") ||
             n.Contains("atmosphere") ||
             n.Contains("sulfuric") ||
             n.Contains("sulphuric") ||
-            n.Contains("cloud");
+            n.Contains("cloud") ||
+            n.Contains("molecularhydrogen") ||
+            n.Contains("metallichydrogen");
     }
 
     void BuildProjectorAndHologram()
