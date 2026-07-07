@@ -49,7 +49,7 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
     public bool hologramFacesCamera = false;
 
     [Header("Panel Size")]
-    public Vector3 panelLocalScale = new Vector3(0.36f, 0.17f, 0.006f);
+    public Vector3 panelLocalScale = new Vector3(0.48f, 0.24f, 0.006f);
 
     [Header("Debug")]
     public bool showDebugRay = true;
@@ -665,12 +665,19 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
             cyanMat
         );
 
+        float leftX = -halfWidth + 0.035f;
+        float rightX = halfWidth - 0.035f;
+        float titleY = halfHeight - 0.038f;
+        float layerY = halfHeight - 0.090f;
+        float descriptionY = -0.020f;
+        float statusY = -halfHeight + 0.030f;
+
         GameObject dot = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         dot.name = "Layer Colour Dot";
         dot.transform.SetParent(hologramRoot.transform);
-        dot.transform.localPosition = new Vector3(-0.135f, 0.022f, -0.012f);
+        dot.transform.localPosition = new Vector3(leftX, layerY, -0.012f);
         dot.transform.localRotation = Quaternion.identity;
-        dot.transform.localScale = new Vector3(0.020f, 0.020f, 0.020f);
+        dot.transform.localScale = new Vector3(0.018f, 0.018f, 0.018f);
         RemoveCollider(dot);
 
         colorDotRenderer = dot.GetComponent<Renderer>();
@@ -683,34 +690,37 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
         planetText = CreateText(
             "Planet Heading Text",
             hologramRoot.transform,
-            new Vector3(-0.135f, 0.055f, -0.014f),
-            0.0070f,
-            TextAnchor.MiddleLeft
+            new Vector3(0f, titleY, -0.014f),
+            0.0062f,
+            TextAnchor.MiddleCenter
         );
+        planetText.alignment = TextAlignment.Center;
 
         titleText = CreateText(
             "Layer Title Text",
             hologramRoot.transform,
-            new Vector3(-0.105f, 0.022f, -0.014f),
-            0.0100f,
+            new Vector3(leftX + 0.028f, layerY, -0.014f),
+            0.0072f,
             TextAnchor.MiddleLeft
         );
 
         descriptionText = CreateText(
             "Layer Description Text",
             hologramRoot.transform,
-            new Vector3(-0.135f, -0.014f, -0.014f),
-            0.0070f,
-            TextAnchor.MiddleLeft
+            new Vector3(0f, descriptionY, -0.014f),
+            0.0049f,
+            TextAnchor.MiddleCenter
         );
+        descriptionText.alignment = TextAlignment.Center;
 
         statusText = CreateText(
             "Layer Status Text",
             hologramRoot.transform,
-            new Vector3(-0.135f, -0.053f, -0.014f),
-            0.0060f,
-            TextAnchor.MiddleLeft
+            new Vector3(0f, statusY, -0.014f),
+            0.0048f,
+            TextAnchor.MiddleCenter
         );
+        statusText.alignment = TextAlignment.Center;
     }
 
     void ShowPanel(string planetName, string layerName, string description, string status, Color color)
@@ -724,13 +734,13 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
 
         if (planetText != null)
         {
-            planetText.text = "PLANET: " + planetName;
+            planetText.text = FitSingleLine("PLANET: " + planetName, 24);
             planetText.color = new Color(0.50f, 1f, 1f);
         }
 
-        titleText.text = layerName;
-        descriptionText.text = description;
-        statusText.text = status;
+        titleText.text = FitSingleLine(layerName, 22);
+        descriptionText.text = WrapText(description, 30, 2);
+        statusText.text = FitSingleLine(status, 26);
 
         titleText.color = color;
         descriptionText.color = Color.white;
@@ -745,6 +755,67 @@ public class LeftHandLayerHologramProjector : MonoBehaviour
             lastLayer = displayKey;
             Debug.Log("Left hand hologram: " + displayKey);
         }
+    }
+
+    string FitSingleLine(string text, int maxCharacters)
+    {
+        if (string.IsNullOrEmpty(text) || text.Length <= maxCharacters)
+        {
+            return text;
+        }
+
+        return text.Substring(0, Mathf.Max(0, maxCharacters - 1)) + ".";
+    }
+
+    string WrapText(string text, int maxCharactersPerLine, int maxLines)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return "";
+        }
+
+        string[] words = text.Split(' ');
+        string result = "";
+        string line = "";
+        int lines = 0;
+
+        foreach (string word in words)
+        {
+            string nextLine = string.IsNullOrEmpty(line) ? word : line + " " + word;
+
+            if (nextLine.Length > maxCharactersPerLine && !string.IsNullOrEmpty(line))
+            {
+                if (lines > 0)
+                {
+                    result += "\n";
+                }
+
+                result += line;
+                lines++;
+                line = word;
+
+                if (lines >= maxLines)
+                {
+                    return result;
+                }
+            }
+            else
+            {
+                line = nextLine;
+            }
+        }
+
+        if (!string.IsNullOrEmpty(line) && lines < maxLines)
+        {
+            if (lines > 0)
+            {
+                result += "\n";
+            }
+
+            result += line;
+        }
+
+        return result;
     }
 
     void HideHologram()

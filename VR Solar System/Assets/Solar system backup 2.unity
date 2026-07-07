@@ -119,6 +119,21 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!115 &5216021
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &6791676
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +165,294 @@ Transform:
   m_Children: []
   m_Father: {fileID: 881020902}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!21 &116671785
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HDRP/Lit
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _NORMALMAP_TANGENT_SPACE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2225
+  stringTagMap: {}
+  disabledShaderPasses:
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - RayTracingPrepass
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AnisotropyMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseColorMap:
+        m_Texture: {fileID: 546856090}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CoatMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 546856090}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubsurfaceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmissionMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AORemapMax: 1
+    - _AORemapMin: 0
+    - _ATDistance: 1
+    - _AddPrecomputedVelocity: 0
+    - _AlbedoAffectEmissive: 0
+    - _AlphaCutoff: 0.5
+    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffPostpass: 0.5
+    - _AlphaCutoffPrepass: 0.5
+    - _AlphaCutoffShadow: 0.5
+    - _AlphaDstBlend: 0
+    - _AlphaRemapMax: 1
+    - _AlphaRemapMin: 0
+    - _AlphaSrcBlend: 1
+    - _Anisotropy: 0
+    - _BlendMode: 0
+    - _CoatMask: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _Cutoff: 0.5
+    - _DepthOffsetEnable: 0
+    - _DetailAlbedoScale: 1
+    - _DetailNormalScale: 1
+    - _DetailSmoothnessScale: 1
+    - _DiffusionProfile: 0
+    - _DiffusionProfileHash: 0
+    - _DisplacementLockObjectScale: 1
+    - _DisplacementLockTilingScale: 1
+    - _DisplacementMode: 0
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 1
+    - _DstBlend: 0
+    - _DstBlend2: 0
+    - _EmissiveColorMode: 1
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
+    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableFogOnTransparent: 1
+    - _EnableGeometricSpecularAA: 0
+    - _EnergyConservingSpecularColor: 1
+    - _HeightAmplitude: 0.02
+    - _HeightCenter: 0.5
+    - _HeightMapParametrization: 0
+    - _HeightMax: 1
+    - _HeightMin: -1
+    - _HeightOffset: 0
+    - _HeightPoMAmplitude: 2
+    - _HeightTessAmplitude: 2
+    - _HeightTessCenter: 0.5
+    - _InvTilingScale: 1
+    - _Ior: 1.5
+    - _IridescenceMask: 1
+    - _IridescenceThickness: 1
+    - _LinkDetailsWithBase: 1
+    - _MaterialID: 1
+    - _Metallic: 0
+    - _MetallicRemapMax: 1
+    - _MetallicRemapMin: 0
+    - _NormalMapSpace: 0
+    - _NormalScale: 1
+    - _ObjectSpaceUVMapping: 0
+    - _ObjectSpaceUVMappingEmissive: 0
+    - _OpaqueCullMode: 2
+    - _PPDLodThreshold: 5
+    - _PPDMaxSamples: 15
+    - _PPDMinSamples: 5
+    - _PPDPrimitiveLength: 1
+    - _PPDPrimitiveWidth: 1
+    - _PerPixelSorting: 0
+    - _RayTracing: 0
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
+    - _Smoothness: 0.5
+    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMin: 0
+    - _SpecularAAScreenSpaceVariance: 0.1
+    - _SpecularAAThreshold: 0.2
+    - _SpecularOcclusionMode: 1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
+    - _SubsurfaceMask: 1
+    - _SupportDecals: 1
+    - _SurfaceType: 0
+    - _TexWorldScale: 1
+    - _TexWorldScaleEmissive: 1
+    - _Thickness: 1
+    - _TransmissionEnable: 1
+    - _TransmissionMask: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UVBase: 0
+    - _UVDetail: 0
+    - _UVEmissive: 0
+    - _UseEmissiveIntensity: 0
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0.34, g: 0.31, b: 0.27, a: 1}
+    - _Color: {r: 0.33999997, g: 0.30999997, b: 0.26999995, a: 1}
+    - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
+    - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
+    - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &126855092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358837744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 2
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
 --- !u!1 &157207112
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +692,838 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!1 &164780884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164780890}
+  - component: {fileID: 164780889}
+  - component: {fileID: 164780888}
+  - component: {fileID: 164780887}
+  - component: {fileID: 164780892}
+  - component: {fileID: 164780891}
+  - component: {fileID: 164780894}
+  - component: {fileID: 164780893}
+  - component: {fileID: 164780896}
+  - component: {fileID: 164780895}
+  - component: {fileID: 164780898}
+  - component: {fileID: 164780897}
+  - component: {fileID: 164780900}
+  - component: {fileID: 164780899}
+  - component: {fileID: 164780902}
+  - component: {fileID: 164780901}
+  - component: {fileID: 164780904}
+  - component: {fileID: 164780903}
+  - component: {fileID: 164780905}
+  m_Layer: 0
+  m_Name: Lobby Tools Orb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &164780887
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d7924d76bcdfba543a5d421c1069964d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &164780888
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &164780889
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &164780890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.3, y: 30.2, z: -5878.3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164780891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 981241359}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &164780892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1032563339}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 50.3, y: 30.2, z: -5878.3}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2104486779}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 6, z: 0}
+  tabletScale: 6
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &164780894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1273167384}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 34.12835, y: 2.04999, z: -5901.939}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 577640445}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &164780896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 805992328}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 34.12835, y: 2.04999, z: -5901.939}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 525110233}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &164780898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1740313944}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 34.12835, y: 2.04999, z: -5901.939}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 246362127}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &164780900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1952464907}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 50.3, y: 30.2, z: -5878.3}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1831276636}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!114 &164780902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1290111130}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 50.3, y: 30.2, z: -5878.3}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1314652989}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!114 &164780904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 5216021}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 50.3, y: 30.2, z: -5878.3}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!114 &164780905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164780884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2000300959}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: TOOLS
+  body: The right-hand laser selects planets, opens tablets, and can split planet
+    layers.
+  footer: Use X to scan exposed layers with the wrist hologram.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!1 &208037506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208037508}
+  - component: {fileID: 208037507}
+  m_Layer: 0
+  m_Name: Runtime Lobby Tutorial System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &208037507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208037506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06768f0bf4d3674b912b4cd690b05e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyTutorialSystem
+  lobbyOffsetFromShipSpawn: {x: 0, y: 2.2, z: 5.5}
+  orbDistance: 2.4
+--- !u!4 &208037508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208037506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219540831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963597747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 0
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!115 &246362127
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!1 &290471292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+  m_PrefabInstance: {fileID: 1442381986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &290471293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 957682207}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1781807690}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!135 &290471295
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &290471297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 362270528}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 556376880}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1619695095}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 981241359}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1655266608}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2104486779}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 701028488}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 577640445}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1383846434}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 525110233}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1271425148}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 246362127}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: SPUTNIK 1
+  body: First artificial satellite launched in 1957. It proved humans could place
+    a machine into Earth orbit.
+  footer: The solar system is nearby. Learn the controls here, then trigger the wormhole
+    when ready.
+  tabletOffset: {x: 0, y: 1.45, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!114 &290471309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2006390349}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 719491148}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
+--- !u!114 &290471311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290471292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 748667589}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbySlowStraightMotion
+  travelAxis: {x: 0, y: 0, z: 1}
+  travelSpeed: 0.28
+  rotationSpeed: 10
 --- !u!1 &335489777
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +1885,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &362270528
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!114 &362950628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678269464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 5
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!114 &395310485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099556160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 4
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
 --- !u!1 &407541748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +2872,7 @@ MonoBehaviour:
   shipSpawnPoint: {fileID: 1021426634}
   startInShipMode: 1
   spawnShipAtStart: 1
-  limitFlightToIntroArea: 1
+  limitFlightToIntroArea: 0
   introFlightRadius: 70
   introVerticalRange: 30
   shipMoveSpeed: 100
@@ -1696,6 +2902,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5790929118881525851, guid: bee87aaf9886d1d499592fcee04f0e85, type: 3}
   m_PrefabInstance: {fileID: 1748009371}
   m_PrefabAsset: {fileID: 0}
+--- !u!115 &525110233
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!28 &546856090
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 32
+  m_Height: 32
+  m_CompleteImageSize: 5460
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 5460
+  _typelessdata: 5d584dff655f53ff635e52ff5a564bff545046ff575248ff625c51ff6f695cff7a7364ff777162ff6b6558ff5e594eff555046ff555147ff5e594dff655f53ff635e52ff59544aff4f4b42ff4c483fff514d43ff59544aff5c584dff5b574cff555046ff4d4941ff4d4940ff545046ff5f5a4fff6c6659ff787263ff797364ff5a564bff635d51ff615c50ff585449ff524d44ff555046ff5f5a4fff6c6759ff756e60ff706a5cff625d51ff555147ff4d4941ff514d43ff5e594eff6a6457ff6b6558ff615c50ff585449ff565147ff5a564bff625d51ff655f53ff635e52ff5b574cff534e45ff514c43ff575248ff615c50ff6f695bff7d7666ff817a6aff534e45ff5b564bff59554aff514d43ff4a463eff4d4940ff585349ff655f53ff6e685bff6c6659ff615c50ff575248ff514c43ff534f45ff5e594eff676255ff686255ff605b50ff5a564bff5a554aff5f5a4eff645e52ff645e52ff605b50ff5a554aff565147ff585349ff605b4fff686256ff736d5fff807969ff867f6eff4d4940ff555046ff534f45ff4b473eff444139ff47433bff524d44ff5f5a4eff696457ff6b6558ff656053ff5f5a4fff5b564cff5b564bff5d584dff5f5a4eff5d584dff59544aff575348ff5b564bff5f5a4fff605b4fff5c574cff565147ff524d44ff545046ff5e594eff686256ff6d685aff746e5fff7d7666ff827b6aff4e4a41ff565248ff555046ff4c483fff45423aff48453dff534f45ff5f5a4fff696357ff6b6658ff686356ff656054ff635e52ff605b50ff5c574cff585349ff555147ff544f45ff565147ff5c574cff615b50ff5e594eff565147ff4d4940ff4a463eff504c43ff5e594eff686356ff6b6658ff6e685aff716b5dff736d5eff575248ff5f5a4eff5d584dff545046ff4e4a41ff514d43ff5b574cff666054ff6b6658ff696457ff645f53ff625d51ff625c51ff605a4fff5c574cff59544aff575348ff575248ff5b564bff635e52ff676255ff635e52ff59554aff4f4b42ff4a463dff4e4a41ff585449ff615c50ff635d51ff635d51ff635e52ff635e52ff625c51ff6a6457ff686256ff5f5a4fff59544aff5c574cff666154ff6e685bff6e685bff656054ff5b574cff585349ff585449ff5a554aff5d584dff5f5a4fff615c50ff615c50ff656054ff6d685aff716b5dff6d675aff635e52ff595449ff504b42ff4d4940ff514d44ff575248ff575349ff585349ff585349ff585349ff6f695cff767061ff736d5eff696356ff625d51ff655f53ff6f695bff767061ff736d5fff676155ff59544aff544f46ff534f45ff555046ff5a554aff605b4fff645f53ff666054ff6b6558ff726c5eff756f60ff716a5dff676255ff5d584dff514d44ff48453cff46433bff48443cff4a463eff4b473fff4c483fff4c4840ff7a7364ff7d7767ff777062ff6b6558ff645e52ff676255ff726b5dff7a7464ff7b7465ff706a5cff625d51ff5a554aff555147ff514d44ff514d43ff565247ff5c584dff615c50ff676255ff6e685aff6e685bff686356ff615c50ff59554aff4d4940ff403d36ff3b3831ff3c3933ff403d36ff444039ff45423aff46423bff777162ff787162ff6e685bff625d51ff5d584dff615c50ff6c6659ff787263ff7f7868ff7a7364ff6e685aff635e52ff5a554bff4e4a41ff47433bff49453dff514d44ff59554aff615c50ff666054ff645e52ff5d584dff575348ff534f45ff49453dff3d3a33ff383530ff3c3932ff434038ff49453dff4a463eff49453dff6b6558ff696356ff5f5a4fff555147ff534e45ff59554aff645f53ff736c5eff7e7767ff7d7767ff726c5eff666154ff5a554bff4a463eff403c35ff423f37ff4d4940ff575348ff615b50ff645f53ff605b4fff585349ff545046ff524e44ff4b473eff423f37ff403d36ff47433bff514c43ff575349ff575248ff524e44ff5e594eff5c574cff544f46ff4d4940ff4e4a41ff575248ff625c51ff706a5cff7a7464ff787263ff6c6659ff5f5a4eff534e45ff454139ff3e3b34ff46423aff534f45ff5f5a4eff686356ff6c6659ff676155ff5f5a4eff5b574cff5a554bff544f45ff4c4840ff4c483fff534f45ff5e594eff645f53ff615c50ff585349ff534f45ff514d44ff4c483fff4a463dff4e4a41ff585449ff635e52ff6f695bff766f61ff706a5cff615c50ff545046ff49463dff403c35ff403d36ff4d4940ff5e594eff696457ff736c5eff756f60ff706a5cff676255ff645f53ff635e52ff5e594eff585349ff585349ff5f5a4fff6a6457ff6f695cff696457ff5d594dff4d4940ff4a463dff48443cff4b473fff555147ff605b50ff696357ff706a5cff706a5cff656053ff575248ff4d4940ff47433bff423f37ff46423bff545046ff645f53ff706a5cff787162ff777162ff6e685bff656054ff635e52ff656053ff645f53ff645f53ff676255ff6f695bff777162ff7b7465ff746e5fff686256ff4e4a41ff49453dff48453cff514c43ff5e594eff696356ff6e685bff6f695bff676155ff5a554bff504c43ff4e4a41ff4e4a41ff4d4940ff4f4b42ff585349ff645e52ff6f695bff746e60ff6f695cff635e52ff5a554aff5a554bff605b4fff666154ff6c6659ff726b5dff777061ff7c7565ff7e7767ff787263ff6f695cff565147ff4e4a41ff4c483fff545046ff615c50ff6a6457ff6c6659ff686256ff5d584dff534e45ff504c42ff555046ff5b564bff5b564bff575348ff575248ff5d584dff676155ff6c6659ff645f53ff575248ff4f4b41ff524e44ff5c574cff666054ff6e685aff716b5dff716b5dff736d5eff736d5fff716b5dff6d685aff5c574cff524e44ff4e4a41ff524e45ff5c584dff635e52ff635e52ff5e594eff545046ff4e4a41ff514d44ff5b564bff635e52ff635e52ff5b564bff555046ff575248ff615c50ff666054ff5f5a4fff544f46ff4e4a41ff544f46ff5f5a4eff686356ff6c6659ff696457ff656053ff645f53ff645f53ff645f53ff645f52ff5d584dff524e44ff4c483fff4d4940ff544f45ff595449ff595449ff545046ff4d4940ff4b473fff514d43ff5b564cff645f53ff645e52ff5b574cff545046ff565247ff605b4fff666054ff625d51ff5a554bff575248ff5e594eff686356ff6e685bff6c6659ff625d51ff5a554bff59544aff59544aff59544aff59544aff615c50ff575248ff4f4a41ff4c483fff4e4a41ff504c42ff4f4b42ff4b483fff48453cff4a473eff524e44ff5c574cff635d51ff615b50ff585349ff514d43ff524e45ff5b574cff615c51ff615c50ff5e594eff5f5a4fff676255ff716b5dff736d5fff6a6457ff5b564bff504c43ff504b42ff504c42ff4f4a41ff4c4840ff696356ff625c51ff5b564bff555147ff514d44ff4e4a41ff4a473eff48443cff49453dff4f4b42ff575348ff5c574cff5e594eff59544aff504c43ff4a473eff4c483fff524e45ff575248ff595449ff5b564bff615c50ff6a6558ff746e5fff736d5fff666154ff555046ff4b473fff4d4940ff4e4a41ff4a463eff433f38ff6d675aff6a6457ff676255ff635e52ff5d584dff555147ff4e4a41ff4b473eff4f4b42ff585349ff5e594eff5d584dff585349ff504c43ff49463dff47443cff4a463eff4d4940ff4f4a41ff4f4b42ff524e44ff5b564bff666054ff6f695bff6e685aff615c50ff534e45ff4d4940ff534e45ff565147ff4f4b42ff444039ff696356ff696457ff6d6759ff6d685aff686356ff5f5a4eff555046ff514d43ff575248ff605b4fff635e52ff5e594dff545046ff4c483fff48453dff4b473fff4f4b42ff504c43ff4e4a41ff4b473eff4b473fff534e45ff5e594dff676255ff676255ff5e594dff544f46ff534e45ff5b564cff605b50ff5a554aff4d4940ff5f5a4eff615c50ff686256ff6d685aff6b6658ff625d51ff585349ff544f46ff59554aff625d51ff656053ff5e594eff534f45ff4c483fff4d4940ff544f45ff59554aff5a554bff565247ff4f4b41ff4b473fff504c43ff5a554bff645e52ff645f53ff5d584dff555046ff555147ff5f5a4eff656053ff615c50ff575248ff555147ff585349ff605b4fff686256ff686356ff615c50ff575248ff534f45ff5a554aff635e52ff666054ff5f5a4eff555046ff504c42ff544f45ff5d584dff645f53ff655f53ff5f5a4fff555147ff4e4a41ff504c43ff59544aff625d51ff635e52ff5b564bff534f45ff545046ff5e594eff656053ff645e52ff5e594eff555046ff565247ff5b564bff5f5a4eff5e594eff585449ff524e44ff524e44ff5b574cff676155ff6b6558ff656054ff5d584dff5b564bff605b4fff686356ff6d675aff6b6658ff645f53ff575248ff4d4940ff4c483fff534e45ff5a554bff5a554aff524e44ff4b483fff4d4940ff575348ff615b50ff656054ff666154ff5d584dff5c574cff59544aff544f46ff504b42ff4e4a41ff4e4a41ff534f45ff605b4fff6b6558ff6f695cff6c6659ff686256ff686256ff6c6659ff706a5cff6f695bff6a6457ff605b4fff534e45ff49453dff48443cff4c4840ff504c43ff4d4941ff46423bff423e37ff46423aff504c42ff5c574cff676255ff6d675aff645f53ff625d51ff585449ff4d4940ff47433bff49463dff504c43ff5a554bff666054ff6d675aff6e685bff6c6759ff6b6658ff6e685bff726c5eff716a5dff6a6457ff615c50ff575248ff4c4840ff48443cff4a463dff4c4840ff4d4940ff48443cff413d36ff3f3c35ff45413aff4f4b42ff5d584dff6c6659ff736c5eff645e52ff615c50ff575248ff4c483fff49453dff4f4b42ff59544aff645e52ff6a6558ff6b6558ff676155ff655f53ff666054ff6b6658ff706a5cff6d685aff655f53ff5a554bff504c42ff4a463eff4c483fff514d44ff545046ff534f45ff4d4940ff46423aff45413aff4c483fff575248ff655f53ff736c5eff767061ff5a554bff585349ff524d44ff4d4940ff504c42ff59544aff645e52ff6c6659ff6d675aff666154ff5d584dff5a554bff5c574cff635e52ff6b6558ff6b6558ff645e52ff59544aff504b42ff4d4940ff534e45ff5b564cff5f5a4eff5e594eff575348ff504c42ff4f4b42ff575248ff615c50ff6e695bff7a7364ff7a7364ff4d4940ff4b473fff4a463eff4e4a41ff59544aff666154ff716b5dff777162ff736d5fff656054ff585349ff544f46ff555147ff5c574cff645e52ff656053ff5f5a4fff565147ff504b42ff524d44ff5b564cff666054ff696356ff676255ff615c50ff5b564bff5b564bff625c51ff6b6558ff767061ff7f7969ff7e7767ff413d36ff3e3a34ff403d36ff4c4840ff605b50ff726c5eff7d7667ff837b6bff7c7566ff6b6659ff5c574cff585349ff585349ff59554aff5a554aff585349ff544f46ff504c42ff504c43ff59544aff656053ff6d685aff6e685aff6a6457ff656053ff635d51ff655f53ff6a6457ff6e685aff756e60ff7d7666ff7f7868ff403d36ff393731ff3a3731ff48443cff5f5a4eff726c5eff7e7767ff847d6cff807969ff726c5eff655f53ff615b50ff5f5a4fff5a554aff514d43ff4b473fff4a463eff4d4940ff555147ff635e52ff6e685aff706a5cff6a6558ff645e52ff615c50ff645e52ff686356ff6b6558ff686356ff696357ff716b5dff787263ff5f5a4fff5d594dff544f46ff666155ff756f60ff5f5b4fff524d44ff625d51ff625c51ff524d44ff59544aff5f5a4fff544f45ff524d44ff666154ff7b7565ff544f45ff524e43ff48443cff5b564bff6b6558ff5f5a4eff565147ff605b4fff5f5a4eff595449ff605b4fff5d584dff555046ff5f5a4fff6e695bff817a69ff565247ff545045ff4a473eff5c574dff6a6457ff645f53ff615b50ff5a554aff555147ff5c574bff625d51ff524e44ff4c483fff5f5b4fff676255ff6a6557ff6c6659ff686356ff5e594eff6e685aff6b6558ff575349ff565147ff5d584dff635d51ff6b6659ff716a5cff605b4fff4d4940ff4d4940ff504c43ff524d44ff797363ff6c6659ff625d50ff746d5fff787263ff635e51ff534f45ff4d4940ff59554aff666154ff656053ff595449ff444139ff3a3731ff444038ff47433bff635e52ff555047ff544f45ff6a6457ff7b7565ff686356ff4f4a41ff413d36ff555146ff666054ff5f5a4eff565248ff4b473eff49453dff5a554bff585349ff4e4a41ff4a463dff565248ff6a6457ff6e685aff565147ff444139ff49463dff666154ff756f60ff6a6557ff635e52ff5f5a4fff635d52ff726c5eff686356ff4e4a41ff4e4a40ff645f52ff6c6659ff5c574cff504c43ff544f45ff555046ff655f53ff6c665aff585349ff5a554aff696356ff726c5eff787162ff716b5dff575248ff4e4a41ff5a564bff5b564bff4e4a41ff565147ff635e52ff575348ff5b564bff635d51ff544f46ff5e594eff6b6558ff625d51ff5e594eff5e594eff605b4fff524e44ff4f4b41ff4b473eff4a473eff585349ff5e594eff504c43ff524e45ff5c574cff5e594dff6d675aff6d675aff524e44ff4e4a41ff49453dff6a6457ff696356ff5e594eff4f4b41ff575248ff5e594eff524d44ff48453dff4d4940ff4d4940ff524e44ff666054ff645f53ff514c43ff58534aff4e4a41ff5b564bff676155ff656053ff555046ff5d594dff615c50ff504c43ff544f45ff5e5a4eff565147ff4e4a41ff5e584dff5f5a4fff544f45ff615c50ff5e594eff585449ff59544aff555046ff514d43ff635e51ff6a6458ff625c51ff696356ff6c6659ff5b564bff4a463dff524d44ff4f4b42ff48443bff595449ff676255ff625d51ff514d43ff4a463dff59544aff696457ff696357ff6a6557ff6f6a5cff625d51ff4f4b42ff4b473eff4f4b42ff46423bff454139ff5a544aff716b5dff524e44ff4d4940ff59554aff6e685aff6a6558ff585349ff5b574cff676255ff5c574cff4f4b42ff5b564cff635d51ff585449ff585349ff6b6658ff7c7566ff3d3a34ff433f38ff686356ff807969ff766f61ff5e594dff5a554aff534f45ff4e4a41ff585349ff6c6658ff696356ff635d51ff686256ff6c6759ff797263ff585349ff575248ff676255ff5a554aff5b554aff5d584dff565147ff736e5fff5f5a4eff5c574cff645e52ff5b564bff5f5a4fff615b4fff514d43ff5c574cff676155ff655f52ff6f6a5bff4c473eff5e594eff5c584cff444139ff4f4a41ff4d493fff645e52ff5c564bff4d4940ff6a6558ff5f5a4eff676155ff706a5cff555146ff534f45ff514d43ff5a554aff5b554bff5f5a4eff625d51ff545046ff655f53ff595549ff5c574cff4f4b42ff534f45ff595449ff59544aff59544aff585449ff524d43ff676255ff686356ff5d594dff4d4940ff48443cff625d51ff47433cff6b6658ff656053ff5b574bff544f46ff645e52ff5e594eff726c5eff5a554aff5f5a4eff5e584dff5d584dff5f594dff585348ff605b50ff5a554aff595549ff555146ff595449ff5a554aff575248ff635e52ff585349ff5e594eff5b564bff5d584dff5a554aff5a554aff5b564bff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!115 &556376880
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &577640445
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!28 &653638116
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 32
+  m_Height: 32
+  m_CompleteImageSize: 5460
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 5460
+  _typelessdata: 5d584dff655f53ff635e52ff5a564bff545046ff575248ff625c51ff6f695cff7a7364ff777162ff6b6558ff5e594eff555046ff555147ff5e594dff655f53ff635e52ff59544aff4f4b42ff4c483fff514d43ff59544aff5c584dff5b574cff555046ff4d4941ff4d4940ff545046ff5f5a4fff6c6659ff787263ff797364ff5a564bff635d51ff615c50ff585449ff524d44ff555046ff5f5a4fff6c6759ff756e60ff706a5cff625d51ff555147ff4d4941ff514d43ff5e594eff6a6457ff6b6558ff615c50ff585449ff565147ff5a564bff625d51ff655f53ff635e52ff5b574cff534e45ff514c43ff575248ff615c50ff6f695bff7d7666ff817a6aff534e45ff5b564bff59554aff514d43ff4a463eff4d4940ff585349ff655f53ff6e685bff6c6659ff615c50ff575248ff514c43ff534f45ff5e594eff676255ff686255ff605b50ff5a564bff5a554aff5f5a4eff645e52ff645e52ff605b50ff5a554aff565147ff585349ff605b4fff686256ff736d5fff807969ff867f6eff4d4940ff555046ff534f45ff4b473eff444139ff47433bff524d44ff5f5a4eff696457ff6b6558ff656053ff5f5a4fff5b564cff5b564bff5d584dff5f5a4eff5d584dff59544aff575348ff5b564bff5f5a4fff605b4fff5c574cff565147ff524d44ff545046ff5e594eff686256ff6d685aff746e5fff7d7666ff827b6aff4e4a41ff565248ff555046ff4c483fff45423aff48453dff534f45ff5f5a4fff696357ff6b6658ff686356ff656054ff635e52ff605b50ff5c574cff585349ff555147ff544f45ff565147ff5c574cff615b50ff5e594eff565147ff4d4940ff4a463eff504c43ff5e594eff686356ff6b6658ff6e685aff716b5dff736d5eff575248ff5f5a4eff5d584dff545046ff4e4a41ff514d43ff5b574cff666054ff6b6658ff696457ff645f53ff625d51ff625c51ff605a4fff5c574cff59544aff575348ff575248ff5b564bff635e52ff676255ff635e52ff59554aff4f4b42ff4a463dff4e4a41ff585449ff615c50ff635d51ff635d51ff635e52ff635e52ff625c51ff6a6457ff686256ff5f5a4fff59544aff5c574cff666154ff6e685bff6e685bff656054ff5b574cff585349ff585449ff5a554aff5d584dff5f5a4fff615c50ff615c50ff656054ff6d685aff716b5dff6d675aff635e52ff595449ff504b42ff4d4940ff514d44ff575248ff575349ff585349ff585349ff585349ff6f695cff767061ff736d5eff696356ff625d51ff655f53ff6f695bff767061ff736d5fff676155ff59544aff544f46ff534f45ff555046ff5a554aff605b4fff645f53ff666054ff6b6558ff726c5eff756f60ff716a5dff676255ff5d584dff514d44ff48453cff46433bff48443cff4a463eff4b473fff4c483fff4c4840ff7a7364ff7d7767ff777062ff6b6558ff645e52ff676255ff726b5dff7a7464ff7b7465ff706a5cff625d51ff5a554aff555147ff514d44ff514d43ff565247ff5c584dff615c50ff676255ff6e685aff6e685bff686356ff615c50ff59554aff4d4940ff403d36ff3b3831ff3c3933ff403d36ff444039ff45423aff46423bff777162ff787162ff6e685bff625d51ff5d584dff615c50ff6c6659ff787263ff7f7868ff7a7364ff6e685aff635e52ff5a554bff4e4a41ff47433bff49453dff514d44ff59554aff615c50ff666054ff645e52ff5d584dff575348ff534f45ff49453dff3d3a33ff383530ff3c3932ff434038ff49453dff4a463eff49453dff6b6558ff696356ff5f5a4fff555147ff534e45ff59554aff645f53ff736c5eff7e7767ff7d7767ff726c5eff666154ff5a554bff4a463eff403c35ff423f37ff4d4940ff575348ff615b50ff645f53ff605b4fff585349ff545046ff524e44ff4b473eff423f37ff403d36ff47433bff514c43ff575349ff575248ff524e44ff5e594eff5c574cff544f46ff4d4940ff4e4a41ff575248ff625c51ff706a5cff7a7464ff787263ff6c6659ff5f5a4eff534e45ff454139ff3e3b34ff46423aff534f45ff5f5a4eff686356ff6c6659ff676155ff5f5a4eff5b574cff5a554bff544f45ff4c4840ff4c483fff534f45ff5e594eff645f53ff615c50ff585349ff534f45ff514d44ff4c483fff4a463dff4e4a41ff585449ff635e52ff6f695bff766f61ff706a5cff615c50ff545046ff49463dff403c35ff403d36ff4d4940ff5e594eff696457ff736c5eff756f60ff706a5cff676255ff645f53ff635e52ff5e594eff585349ff585349ff5f5a4fff6a6457ff6f695cff696457ff5d594dff4d4940ff4a463dff48443cff4b473fff555147ff605b50ff696357ff706a5cff706a5cff656053ff575248ff4d4940ff47433bff423f37ff46423bff545046ff645f53ff706a5cff787162ff777162ff6e685bff656054ff635e52ff656053ff645f53ff645f53ff676255ff6f695bff777162ff7b7465ff746e5fff686256ff4e4a41ff49453dff48453cff514c43ff5e594eff696356ff6e685bff6f695bff676155ff5a554bff504c43ff4e4a41ff4e4a41ff4d4940ff4f4b42ff585349ff645e52ff6f695bff746e60ff6f695cff635e52ff5a554aff5a554bff605b4fff666154ff6c6659ff726b5dff777061ff7c7565ff7e7767ff787263ff6f695cff565147ff4e4a41ff4c483fff545046ff615c50ff6a6457ff6c6659ff686256ff5d584dff534e45ff504c42ff555046ff5b564bff5b564bff575348ff575248ff5d584dff676155ff6c6659ff645f53ff575248ff4f4b41ff524e44ff5c574cff666054ff6e685aff716b5dff716b5dff736d5eff736d5fff716b5dff6d685aff5c574cff524e44ff4e4a41ff524e45ff5c584dff635e52ff635e52ff5e594eff545046ff4e4a41ff514d44ff5b564bff635e52ff635e52ff5b564bff555046ff575248ff615c50ff666054ff5f5a4fff544f46ff4e4a41ff544f46ff5f5a4eff686356ff6c6659ff696457ff656053ff645f53ff645f53ff645f53ff645f52ff5d584dff524e44ff4c483fff4d4940ff544f45ff595449ff595449ff545046ff4d4940ff4b473fff514d43ff5b564cff645f53ff645e52ff5b574cff545046ff565247ff605b4fff666054ff625d51ff5a554bff575248ff5e594eff686356ff6e685bff6c6659ff625d51ff5a554bff59544aff59544aff59544aff59544aff615c50ff575248ff4f4a41ff4c483fff4e4a41ff504c42ff4f4b42ff4b483fff48453cff4a473eff524e44ff5c574cff635d51ff615b50ff585349ff514d43ff524e45ff5b574cff615c51ff615c50ff5e594eff5f5a4fff676255ff716b5dff736d5fff6a6457ff5b564bff504c43ff504b42ff504c42ff4f4a41ff4c4840ff696356ff625c51ff5b564bff555147ff514d44ff4e4a41ff4a473eff48443cff49453dff4f4b42ff575348ff5c574cff5e594eff59544aff504c43ff4a473eff4c483fff524e45ff575248ff595449ff5b564bff615c50ff6a6558ff746e5fff736d5fff666154ff555046ff4b473fff4d4940ff4e4a41ff4a463eff433f38ff6d675aff6a6457ff676255ff635e52ff5d584dff555147ff4e4a41ff4b473eff4f4b42ff585349ff5e594eff5d584dff585349ff504c43ff49463dff47443cff4a463eff4d4940ff4f4a41ff4f4b42ff524e44ff5b564bff666054ff6f695bff6e685aff615c50ff534e45ff4d4940ff534e45ff565147ff4f4b42ff444039ff696356ff696457ff6d6759ff6d685aff686356ff5f5a4eff555046ff514d43ff575248ff605b4fff635e52ff5e594dff545046ff4c483fff48453dff4b473fff4f4b42ff504c43ff4e4a41ff4b473eff4b473fff534e45ff5e594dff676255ff676255ff5e594dff544f46ff534e45ff5b564cff605b50ff5a554aff4d4940ff5f5a4eff615c50ff686256ff6d685aff6b6658ff625d51ff585349ff544f46ff59554aff625d51ff656053ff5e594eff534f45ff4c483fff4d4940ff544f45ff59554aff5a554bff565247ff4f4b41ff4b473fff504c43ff5a554bff645e52ff645f53ff5d584dff555046ff555147ff5f5a4eff656053ff615c50ff575248ff555147ff585349ff605b4fff686256ff686356ff615c50ff575248ff534f45ff5a554aff635e52ff666054ff5f5a4eff555046ff504c42ff544f45ff5d584dff645f53ff655f53ff5f5a4fff555147ff4e4a41ff504c43ff59544aff625d51ff635e52ff5b564bff534f45ff545046ff5e594eff656053ff645e52ff5e594eff555046ff565247ff5b564bff5f5a4eff5e594eff585449ff524e44ff524e44ff5b574cff676155ff6b6558ff656054ff5d584dff5b564bff605b4fff686356ff6d675aff6b6658ff645f53ff575248ff4d4940ff4c483fff534e45ff5a554bff5a554aff524e44ff4b483fff4d4940ff575348ff615b50ff656054ff666154ff5d584dff5c574cff59544aff544f46ff504b42ff4e4a41ff4e4a41ff534f45ff605b4fff6b6558ff6f695cff6c6659ff686256ff686256ff6c6659ff706a5cff6f695bff6a6457ff605b4fff534e45ff49453dff48443cff4c4840ff504c43ff4d4941ff46423bff423e37ff46423aff504c42ff5c574cff676255ff6d675aff645f53ff625d51ff585449ff4d4940ff47433bff49463dff504c43ff5a554bff666054ff6d675aff6e685bff6c6759ff6b6658ff6e685bff726c5eff716a5dff6a6457ff615c50ff575248ff4c4840ff48443cff4a463dff4c4840ff4d4940ff48443cff413d36ff3f3c35ff45413aff4f4b42ff5d584dff6c6659ff736c5eff645e52ff615c50ff575248ff4c483fff49453dff4f4b42ff59544aff645e52ff6a6558ff6b6558ff676155ff655f53ff666054ff6b6658ff706a5cff6d685aff655f53ff5a554bff504c42ff4a463eff4c483fff514d44ff545046ff534f45ff4d4940ff46423aff45413aff4c483fff575248ff655f53ff736c5eff767061ff5a554bff585349ff524d44ff4d4940ff504c42ff59544aff645e52ff6c6659ff6d675aff666154ff5d584dff5a554bff5c574cff635e52ff6b6558ff6b6558ff645e52ff59544aff504b42ff4d4940ff534e45ff5b564cff5f5a4eff5e594eff575348ff504c42ff4f4b42ff575248ff615c50ff6e695bff7a7364ff7a7364ff4d4940ff4b473fff4a463eff4e4a41ff59544aff666154ff716b5dff777162ff736d5fff656054ff585349ff544f46ff555147ff5c574cff645e52ff656053ff5f5a4fff565147ff504b42ff524d44ff5b564cff666054ff696356ff676255ff615c50ff5b564bff5b564bff625c51ff6b6558ff767061ff7f7969ff7e7767ff413d36ff3e3a34ff403d36ff4c4840ff605b50ff726c5eff7d7667ff837b6bff7c7566ff6b6659ff5c574cff585349ff585349ff59554aff5a554aff585349ff544f46ff504c42ff504c43ff59544aff656053ff6d685aff6e685aff6a6457ff656053ff635d51ff655f53ff6a6457ff6e685aff756e60ff7d7666ff7f7868ff403d36ff393731ff3a3731ff48443cff5f5a4eff726c5eff7e7767ff847d6cff807969ff726c5eff655f53ff615b50ff5f5a4fff5a554aff514d43ff4b473fff4a463eff4d4940ff555147ff635e52ff6e685aff706a5cff6a6558ff645e52ff615c50ff645e52ff686356ff6b6558ff686356ff696357ff716b5dff787263ff5f5a4fff5d594dff544f46ff666155ff756f60ff5f5b4fff524d44ff625d51ff625c51ff524d44ff59544aff5f5a4fff544f45ff524d44ff666154ff7b7565ff544f45ff524e43ff48443cff5b564bff6b6558ff5f5a4eff565147ff605b4fff5f5a4eff595449ff605b4fff5d584dff555046ff5f5a4fff6e695bff817a69ff565247ff545045ff4a473eff5c574dff6a6457ff645f53ff615b50ff5a554aff555147ff5c574bff625d51ff524e44ff4c483fff5f5b4fff676255ff6a6557ff6c6659ff686356ff5e594eff6e685aff6b6558ff575349ff565147ff5d584dff635d51ff6b6659ff716a5cff605b4fff4d4940ff4d4940ff504c43ff524d44ff797363ff6c6659ff625d50ff746d5fff787263ff635e51ff534f45ff4d4940ff59554aff666154ff656053ff595449ff444139ff3a3731ff444038ff47433bff635e52ff555047ff544f45ff6a6457ff7b7565ff686356ff4f4a41ff413d36ff555146ff666054ff5f5a4eff565248ff4b473eff49453dff5a554bff585349ff4e4a41ff4a463dff565248ff6a6457ff6e685aff565147ff444139ff49463dff666154ff756f60ff6a6557ff635e52ff5f5a4fff635d52ff726c5eff686356ff4e4a41ff4e4a40ff645f52ff6c6659ff5c574cff504c43ff544f45ff555046ff655f53ff6c665aff585349ff5a554aff696356ff726c5eff787162ff716b5dff575248ff4e4a41ff5a564bff5b564bff4e4a41ff565147ff635e52ff575348ff5b564bff635d51ff544f46ff5e594eff6b6558ff625d51ff5e594eff5e594eff605b4fff524e44ff4f4b41ff4b473eff4a473eff585349ff5e594eff504c43ff524e45ff5c574cff5e594dff6d675aff6d675aff524e44ff4e4a41ff49453dff6a6457ff696356ff5e594eff4f4b41ff575248ff5e594eff524d44ff48453dff4d4940ff4d4940ff524e44ff666054ff645f53ff514c43ff58534aff4e4a41ff5b564bff676155ff656053ff555046ff5d594dff615c50ff504c43ff544f45ff5e5a4eff565147ff4e4a41ff5e584dff5f5a4fff544f45ff615c50ff5e594eff585449ff59544aff555046ff514d43ff635e51ff6a6458ff625c51ff696356ff6c6659ff5b564bff4a463dff524d44ff4f4b42ff48443bff595449ff676255ff625d51ff514d43ff4a463dff59544aff696457ff696357ff6a6557ff6f6a5cff625d51ff4f4b42ff4b473eff4f4b42ff46423bff454139ff5a544aff716b5dff524e44ff4d4940ff59554aff6e685aff6a6558ff585349ff5b574cff676255ff5c574cff4f4b42ff5b564cff635d51ff585449ff585349ff6b6658ff7c7566ff3d3a34ff433f38ff686356ff807969ff766f61ff5e594dff5a554aff534f45ff4e4a41ff585349ff6c6658ff696356ff635d51ff686256ff6c6759ff797263ff585349ff575248ff676255ff5a554aff5b554aff5d584dff565147ff736e5fff5f5a4eff5c574cff645e52ff5b564bff5f5a4fff615b4fff514d43ff5c574cff676155ff655f52ff6f6a5bff4c473eff5e594eff5c584cff444139ff4f4a41ff4d493fff645e52ff5c564bff4d4940ff6a6558ff5f5a4eff676155ff706a5cff555146ff534f45ff514d43ff5a554aff5b554bff5f5a4eff625d51ff545046ff655f53ff595549ff5c574cff4f4b42ff534f45ff595449ff59544aff59544aff585449ff524d43ff676255ff686356ff5d594dff4d4940ff48443cff625d51ff47433cff6b6658ff656053ff5b574bff544f46ff645e52ff5e594eff726c5eff5a554aff5f5a4eff5e584dff5d584dff5f594dff585348ff605b50ff5a554aff595549ff555146ff595449ff5a554aff575248ff635e52ff585349ff5e594eff5b564bff5d584dff5a554aff5a554aff5b564bff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &678269464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +3219,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &701028488
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &719491148
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &748667589
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!114 &786579303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348623525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 1
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
+--- !u!115 &805992328
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &873889545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,6 +3659,34 @@ MonoBehaviour:
   swayAmount: 0
   swaySpeed: 0
   showDebugLogs: 1
+--- !u!114 &896233790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335489777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
+  planetKind: 3
+  segments: 64
+  rings: 32
+  rightHalfShouldFly: 1
+  smallOpeningDistance: 0.15
+  flyingHalfMoveDistance: 22
+  flyingHalfMoveDuration: 2.2
+  flyingHalfSpinDegrees: 420
+  destroyFlyingHalfAfterMove: 1
+  keepOriginalTexture: 1
+  outerSurfaceScaleBoost: 1.002
+  showTabletAfterSplit: 1
+  tabletOpenDelay: 0.25
+  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
+  tabletScale: 0.65
+  allowPKeyTest: 0
 --- !u!1 &948673283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +3718,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 504423836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &957682207
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &963597747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +3913,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &981241359
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1021426633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +3959,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1032563339
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &1070805806
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1099556160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,11 +4169,508 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1156272495
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HDRP/Lit
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _NORMALMAP_TANGENT_SPACE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2225
+  stringTagMap: {}
+  disabledShaderPasses:
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - RayTracingPrepass
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AnisotropyMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseColorMap:
+        m_Texture: {fileID: 653638116}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CoatMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 653638116}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubsurfaceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmissionMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AORemapMax: 1
+    - _AORemapMin: 0
+    - _ATDistance: 1
+    - _AddPrecomputedVelocity: 0
+    - _AlbedoAffectEmissive: 0
+    - _AlphaCutoff: 0.5
+    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffPostpass: 0.5
+    - _AlphaCutoffPrepass: 0.5
+    - _AlphaCutoffShadow: 0.5
+    - _AlphaDstBlend: 0
+    - _AlphaRemapMax: 1
+    - _AlphaRemapMin: 0
+    - _AlphaSrcBlend: 1
+    - _Anisotropy: 0
+    - _BlendMode: 0
+    - _CoatMask: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _Cutoff: 0.5
+    - _DepthOffsetEnable: 0
+    - _DetailAlbedoScale: 1
+    - _DetailNormalScale: 1
+    - _DetailSmoothnessScale: 1
+    - _DiffusionProfile: 0
+    - _DiffusionProfileHash: 0
+    - _DisplacementLockObjectScale: 1
+    - _DisplacementLockTilingScale: 1
+    - _DisplacementMode: 0
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 1
+    - _DstBlend: 0
+    - _DstBlend2: 0
+    - _EmissiveColorMode: 1
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
+    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableFogOnTransparent: 1
+    - _EnableGeometricSpecularAA: 0
+    - _EnergyConservingSpecularColor: 1
+    - _HeightAmplitude: 0.02
+    - _HeightCenter: 0.5
+    - _HeightMapParametrization: 0
+    - _HeightMax: 1
+    - _HeightMin: -1
+    - _HeightOffset: 0
+    - _HeightPoMAmplitude: 2
+    - _HeightTessAmplitude: 2
+    - _HeightTessCenter: 0.5
+    - _InvTilingScale: 1
+    - _Ior: 1.5
+    - _IridescenceMask: 1
+    - _IridescenceThickness: 1
+    - _LinkDetailsWithBase: 1
+    - _MaterialID: 1
+    - _Metallic: 0
+    - _MetallicRemapMax: 1
+    - _MetallicRemapMin: 0
+    - _NormalMapSpace: 0
+    - _NormalScale: 1
+    - _ObjectSpaceUVMapping: 0
+    - _ObjectSpaceUVMappingEmissive: 0
+    - _OpaqueCullMode: 2
+    - _PPDLodThreshold: 5
+    - _PPDMaxSamples: 15
+    - _PPDMinSamples: 5
+    - _PPDPrimitiveLength: 1
+    - _PPDPrimitiveWidth: 1
+    - _PerPixelSorting: 0
+    - _RayTracing: 0
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
+    - _Smoothness: 0.5
+    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMin: 0
+    - _SpecularAAScreenSpaceVariance: 0.1
+    - _SpecularAAThreshold: 0.2
+    - _SpecularOcclusionMode: 1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
+    - _SubsurfaceMask: 1
+    - _SupportDecals: 1
+    - _SurfaceType: 0
+    - _TexWorldScale: 1
+    - _TexWorldScaleEmissive: 1
+    - _Thickness: 1
+    - _TransmissionEnable: 1
+    - _TransmissionMask: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UVBase: 0
+    - _UVDetail: 0
+    - _UVEmissive: 0
+    - _UseEmissiveIntensity: 0
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0.34, g: 0.31, b: 0.27, a: 1}
+    - _Color: {r: 0.33999997, g: 0.30999997, b: 0.26999995, a: 1}
+    - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
+    - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
+    - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!4 &1206409400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd7519d093c1244458f11f342b20f625, type: 3}
   m_PrefabInstance: {fileID: 2084695446}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1222878503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222878509}
+  - component: {fileID: 1222878508}
+  - component: {fileID: 1222878507}
+  - component: {fileID: 1222878506}
+  - component: {fileID: 1222878505}
+  - component: {fileID: 1222878504}
+  - component: {fileID: 1222878510}
+  m_Layer: 0
+  m_Name: Lobby Buttons Asteroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1222878504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1070805806}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 48.9, y: 1.44999, z: -5938.3}
+  floatAmplitude: 0.45
+  floatSpeed: 0.62
+  orbitRadius: 0.42
+  sideAmplitude: 0.32
+  forwardAmplitude: 0.38
+  driftSpeed: 0.55
+--- !u!114 &1222878505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1781807690}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: BUTTON GUIDE
+  body: Left stick moves. A/X moves down. B/V moves up. Left grip enters or exits
+    spacecraft mode. X shows the layer hologram. Y opens Solar System Analysis.
+  footer: Menu button creates the wormhole. Right trigger shoots. Left trigger shows
+    the laser ray.
+  tabletOffset: {x: 0, y: 1.15, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 1
+  tabletWorldPadding: 0.75
+--- !u!64 &1222878506
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1407916270}
+--- !u!23 &1222878507
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 116671785}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1222878508
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Mesh: {fileID: 1407916270}
+--- !u!4 &1222878509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.9, y: 1.44999, z: -5938.3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1222878510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222878503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 981241359}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: BUTTON GUIDE
+  body: Left stick moves. A/X moves down. B/V moves up. Left grip enters or exits
+    spacecraft mode. X shows the layer hologram. Y opens Solar System Analysis.
+  footer: Menu button creates the wormhole. Right trigger shoots. Left trigger shows
+    the laser ray.
+  tabletOffset: {x: 0, y: 1.15, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!115 &1271425148
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &1273167384
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &1290111130
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &1314652989
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1358837744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +4882,199 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1383846434
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!43 &1407916270
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Procedural Stone Asteroid Mesh Instance
+  serializedVersion: 12
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 72
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 14
+    localAABB:
+      m_Center: {x: 0.008153811, y: 0.00097566843, z: -0.03436148}
+      m_Extent: {x: 0.49482203, y: 0.51406, z: 0.5290049}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 0800010000000800020001000800030002000800000003000900040005000900050006000900060007000900070004000a00000004000a00040007000a00070003000a00030000000b00050001000b00060005000b00020006000b00010002000c00000001000c00010005000c00050004000c00040000000d00020003000d00060002000d00070006000d0003000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 14
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 448
+    _typelessdata: c3ca97bec3ca97bec3ca97be89a1183fa6d5153fbbac0c3f0100003e5f27323fae28993eae2899beae2899becc2915bfaa22173fe5fb0e3f0000c03e6027323fca04a23eca04a2beca04a23ef95012bff888143fe48a14bf0000203f5f27323fcbf894becbf894becbf8943e0bf6163f5bfd103fa76413bf0000603f6027323f2f249dbe2f249d3e2f249dbe70d41a3f046913bf42d50c3f0100003e41b19b3e8d0da73e8d0da73e8d0da7bee8df16bfab4414bf6c2f103f0000c03e41b19b3ef863a43ef863a43ef863a43edf4112bf707f12bf029c16bf0000203f41b19b3ee44999bee449993ee449993e8154173fa07b0fbf377c14bf0000603f41b19b3e000000007f5903bf00000000fa2fbe3c75eb7f3fc463193c0000003f0000803f0000000061d9033f000000009917063d74d97fbf8a3227bc0000003f00000000932cf9be0000000000000000f1f37f3ffa61813c446832bc0000803f0000003f06c3003f0000000000000000afe77fbf6b75cf3c125d243c0000003f0000003f0000000000000000c73810bff5638f3c9f76f83ccfd77f3f0000803e0000003f0000000000000000e641fd3e28591d3d3d1f303cd5cb7fbf0000403f0000003f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.008153811, y: 0.00097566843, z: -0.03436148}
+    m_Extent: {x: 0.49482203, y: 0.51406, z: 0.5290049}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
 --- !u!1 &1423698384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,7 +5161,61 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471295}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471294}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471293}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471298}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471297}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471300}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471299}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471302}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471301}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471304}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471303}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471306}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471305}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471308}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471307}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471309}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471310}
+    - targetCorrespondingSourceObject: {fileID: 2638649845463096286, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 290471311}
   m_SourcePrefab: {fileID: 100100000, guid: 039da3b2afefb39499dd20ea57ec484b, type: 3}
 --- !u!1 &1526632513
 GameObject:
@@ -3293,6 +5556,351 @@ MonoBehaviour:
   darkMetalColor: {r: 0.01, g: 0.012, b: 0.015, a: 1}
   greenGlowColor: {r: 0, g: 1, b: 0.12, a: 1}
   blueGlowColor: {r: 0, g: 0.65, b: 1, a: 1}
+--- !u!43 &1611832649
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Procedural Stone Asteroid Mesh Instance
+  serializedVersion: 12
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 72
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 14
+    localAABB:
+      m_Center: {x: 0.008624226, y: 0.001031965, z: -0.036343873}
+      m_Extent: {x: 0.52336943, y: 0.5437174, z: 0.5595244}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 0800010000000800020001000800030002000800000003000900040005000900050006000900060007000900070004000a00000004000a00040007000a00070003000a00030000000b00050001000b00060005000b00020006000b00010002000c00000001000c00010005000c00050004000c00040000000d00020003000d00060002000d00070006000d0003000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 14
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 448
+    _typelessdata: 9e8ca0be9e8ca0be9e8ca0be89a1183fa5d5153fbaac0c3f0100003e5f27323fb9fea13eb9fea1beb9fea1becd2915bfaa22173fe5fb0e3f0000c03e5f27323faf5dab3eaf5dabbeaf5dab3efa5012bff888143fe48a14bf0000203f5f27323fff909dbeff909dbeff909d3e0af6163f5afd103fa76413bf0000603f5f27323f0b35a6be0b35a63e0b35a6be71d41a3f046913bf42d50c3f0100003e41b19b3ecbb0b03ecbb0b03ecbb0b0bee7df16bfab4414bf6b2f103f0000c03e41b19b3ee4dfad3ee4dfad3ee4dfad3edf4112bf707f12bf029c16bf0000203f41b19b3ed821a2bed821a23ed821a23e8154173fa07b0fbf387c14bf0000603f41b19b3e000000006eed0abf000000000630be3c76eb7f3fe463193c0000003f0000803f00000000b1740b3f000000009f17063d75d97fbf9c3227bc0000003f0000000058c603bf0000000000000000f1f37f3fe961813c626832bc0000803f0000003fbd30083f0000000000000000afe77fbf5275cf3c055d243c0000003f0000003f0000000000000000d38a18bff5638f3c8976f83ccdd77f3f0000803e0000003f000000000000000029ef053f32591d3d091f303cd7cb7fbf0000403f0000003f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.008624226, y: 0.001031965, z: -0.036343873}
+    m_Extent: {x: 0.52336943, y: 0.5437174, z: 0.5595244}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
+--- !u!1 &1613306009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613306015}
+  - component: {fileID: 1613306014}
+  - component: {fileID: 1613306013}
+  - component: {fileID: 1613306012}
+  - component: {fileID: 1613306010}
+  - component: {fileID: 1613306016}
+  m_Layer: 0
+  m_Name: Lobby Controls Orb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613306010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1070805806}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: -7.9, y: 1.24999, z: -5878.6}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!23 &1613306012
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: babeefc6edf0e04458978e31c0b713a9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &1613306013
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1613306014
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1613306015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.9, y: 1.24999, z: -5878.6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1613306016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613306009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 981241359}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: CONTROLS
+  body: Left stick moves. Right stick turns or looks. A moves down. B moves up.
+  footer: Left grip toggles ship mode. Menu/glove button starts the wormhole.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!115 &1619695095
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1652880039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,6 +6013,174 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652880039}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!115 &1655266608
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!1 &1671442719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671442725}
+  - component: {fileID: 1671442724}
+  - component: {fileID: 1671442723}
+  - component: {fileID: 1671442722}
+  - component: {fileID: 1671442720}
+  - component: {fileID: 1671442726}
+  m_Layer: 0
+  m_Name: Lobby Modes Orb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1671442720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1070805806}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: -79.8, y: -26.5, z: -5927.3}
+  floatAmplitude: 0.55
+  floatSpeed: 0.72
+  orbitRadius: 0.55
+  sideAmplitude: 0.42
+  forwardAmplitude: 0.5
+  driftSpeed: 0.7
+--- !u!23 &1671442722
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2590d2f61d26a9d4db8f0030b34f885e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &1671442723
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1671442724
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1671442725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -79.8, y: -32.8, z: -5927.3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671442726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671442719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 981241359}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: MODES
+  body: Analysis Mode includes distance, compare, atmospheric gas charts, and moon
+    visuals.
+  footer: Select two planets to compare them and see both highlighted.
+  tabletOffset: {x: 0, y: 1, z: 0}
+  tabletScale: 1.25
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
 --- !u!1 &1724579804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,6 +6264,21 @@ MonoBehaviour:
   verticalSpeed: 6
   turnSpeed: 80
   turnDeadzone: 0.15
+--- !u!115 &1740313944
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1001 &1748009371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3573,6 +6364,190 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 504423833}
   m_SourcePrefab: {fileID: 100100000, guid: bee87aaf9886d1d499592fcee04f0e85, type: 3}
+--- !u!115 &1781807690
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!1 &1798685865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798685871}
+  - component: {fileID: 1798685870}
+  - component: {fileID: 1798685869}
+  - component: {fileID: 1798685868}
+  - component: {fileID: 1798685867}
+  - component: {fileID: 1798685866}
+  m_Layer: 0
+  m_Name: Lobby Modes Asteroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1798685866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1070805806}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyFloatingOrbMotion
+  basePosition: {x: 108.7, y: 0.74999, z: -5909.6}
+  floatAmplitude: 0.45
+  floatSpeed: 0.62
+  orbitRadius: 0.42
+  sideAmplitude: 0.32
+  forwardAmplitude: 0.38
+  driftSpeed: 0.55
+--- !u!114 &1798685867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1781807690}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyShootInfoTarget
+  title: AVAILABLE MODES
+  body: Ship mode lets you pilot the spacecraft. Astronaut mode lets you move freely.
+    Analysis Mode opens distance, compare, gas chart, and moon study tools.
+  footer: Use the laser to select planets and reveal learning panels.
+  tabletOffset: {x: 0, y: 1.15, z: 0}
+  tabletScale: 1.35
+  showTabletOnStart: 0
+  tabletWorldPadding: 0.75
+--- !u!64 &1798685868
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1611832649}
+--- !u!23 &1798685869
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 1156272495}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1798685870
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  m_Mesh: {fileID: 1611832649}
+--- !u!4 &1798685871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798685865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 108.7, y: 0.74999, z: -5909.6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1831276636
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1927373786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +6674,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelfRotation
   rotationSpeed: 20
+--- !u!115 &1952464907
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyFloatingOrbMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &2000300959
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
+--- !u!115 &2006390349
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbySlowStraightMotion
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1
@@ -3852,174 +6872,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &786579303
-MonoBehaviour:
+--- !u!115 &2104486779
+MonoScript:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348623525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 1
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
---- !u!114 &219540831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963597747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 0
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
---- !u!114 &126855092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358837744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 2
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
---- !u!114 &896233790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335489777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 3
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
---- !u!114 &395310485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099556160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 4
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
---- !u!114 &362950628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678269464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a2d5f753874ffdab606e7e87d6dcda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetHalfPlanetSplitter
-  planetKind: 5
-  segments: 64
-  rings: 32
-  rightHalfShouldFly: 1
-  smallOpeningDistance: 0.15
-  flyingHalfMoveDistance: 22
-  flyingHalfMoveDuration: 2.2
-  flyingHalfSpinDegrees: 420
-  destroyFlyingHalfAfterMove: 1
-  keepOriginalTexture: 1
-  outerSurfaceScaleBoost: 1.002
-  showTabletAfterSplit: 1
-  tabletOpenDelay: 0.25
-  tabletLocalOffset: {x: 0.85, y: 0.25, z: 0}
-  tabletScale: 0.65
-  allowPKeyTest: 0
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: LobbyShootInfoTarget
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4042,3 +6909,9 @@ SceneRoots:
   - {fileID: 1375104842}
   - {fileID: 1748009371}
   - {fileID: 1442381986}
+  - {fileID: 208037508}
+  - {fileID: 1613306015}
+  - {fileID: 1671442725}
+  - {fileID: 164780890}
+  - {fileID: 1798685871}
+  - {fileID: 1222878509}

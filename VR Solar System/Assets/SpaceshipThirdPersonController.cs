@@ -43,7 +43,7 @@ public class SpaceshipThirdPersonController : MonoBehaviour
 
     [Header("Intro Flight Zone")]
     [Tooltip("Keeps the spacecraft in the initial intro area, away from the Solar System.")]
-    public bool limitFlightToIntroArea = true;
+    public bool limitFlightToIntroArea = false;
 
     [Tooltip("Maximum horizontal distance the spacecraft can travel from its initial spawn position.")]
     public float introFlightRadius = 70f;

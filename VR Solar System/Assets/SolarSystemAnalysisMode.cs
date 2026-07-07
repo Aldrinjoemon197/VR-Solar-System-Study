@@ -377,6 +377,8 @@ public class SolarSystemAnalysisMode : MonoBehaviour
     private Material textGlowMaterial;
 
     private GameObject selectedPlanetIndicatorRoot;
+    private GameObject distancePlanetAIndicatorRoot;
+    private GameObject distancePlanetBIndicatorRoot;
     private LineRenderer selectedPlanetRingXY;
     private LineRenderer selectedPlanetRingXZ;
     private LineRenderer selectedPlanetRingYZ;
@@ -1552,25 +1554,53 @@ public class SolarSystemAnalysisMode : MonoBehaviour
             return;
         }
 
-        RegisterPlanetOrbit(activeMovePlanet);
+        Transform moveTarget = GetActiveDistanceMoveTarget(activeMovePlanet);
+
+        RegisterPlanetOrbit(moveTarget);
 
         if (!IsRightTriggerHeld())
         {
             return;
         }
 
-        Vector3 oldPosition = activeMovePlanet.position;
+        Vector3 oldPosition = moveTarget.position;
 
         // Right thumbstick is now reserved for camera rotation.
         // Planet movement uses right trigger + aiming ray only.
-        MovePlanetByGunRay(activeMovePlanet);
+        MovePlanetByGunRay(moveTarget);
 
-        Vector3 movementDelta = activeMovePlanet.position - oldPosition;
+        Vector3 movementDelta = moveTarget.position - oldPosition;
 
         if (movementDelta.sqrMagnitude > 0.000001f)
         {
-            MoveExtraObjectsWithPlanet(activeMovePlanet, movementDelta);
+            MoveExtraObjectsWithPlanet(moveTarget, movementDelta);
         }
+    }
+
+    Transform GetActiveDistanceMoveTarget(Transform selectedPlanet)
+    {
+        if (selectedPlanet == null)
+        {
+            return null;
+        }
+
+        string planetKey = PlanetDisplayName(selectedPlanet).ToLower();
+        Transform current = selectedPlanet;
+        Transform best = selectedPlanet;
+
+        while (current.parent != null)
+        {
+            if (LooksLikePlanetLayerCompanion(current.parent.name, planetKey))
+            {
+                best = current.parent;
+                current = current.parent;
+                continue;
+            }
+
+            break;
+        }
+
+        return best;
     }
 
     void MovePlanetByGunRay(Transform planet)
@@ -1659,12 +1689,95 @@ public class SolarSystemAnalysisMode : MonoBehaviour
             return;
         }
 
+        MovePlanetLayerObjectsWithPlanet(planet, delta);
+
         string planetName = PlanetDisplayName(planet).ToLower();
 
         if (planetName.Contains("saturn"))
         {
             MoveSaturnRingWithPlanet(planet, delta);
         }
+    }
+
+    void MovePlanetLayerObjectsWithPlanet(Transform planet, Vector3 delta)
+    {
+        string planetKey = PlanetDisplayName(planet).ToLower();
+
+        if (string.IsNullOrEmpty(planetKey))
+        {
+            return;
+        }
+
+        Transform[] allTransforms = FindObjectsOfType<Transform>();
+        HashSet<Transform> movedObjects = new HashSet<Transform>();
+
+        foreach (Transform t in allTransforms)
+        {
+            if (t == null || t == planet || t.IsChildOf(planet) || planet.IsChildOf(t))
+            {
+                continue;
+            }
+
+            if (!LooksLikePlanetLayerCompanion(t.name, planetKey))
+            {
+                continue;
+            }
+
+            Transform moveRoot = GetPlanetLayerMoveRoot(t, planetKey, planet);
+
+            if (moveRoot == null || movedObjects.Contains(moveRoot))
+            {
+                continue;
+            }
+
+            moveRoot.position += delta;
+            movedObjects.Add(moveRoot);
+        }
+    }
+
+    bool LooksLikePlanetLayerCompanion(string objectName, string planetKey)
+    {
+        string n = objectName.ToLower();
+
+        if (!n.Contains(planetKey))
+        {
+            return false;
+        }
+
+        return
+            n.Contains("_left_half") ||
+            n.Contains("_right_half") ||
+            n.Contains("left half") ||
+            n.Contains("right half") ||
+            n.Contains("layer") ||
+            n.Contains("crust") ||
+            n.Contains("mantle") ||
+            n.Contains("core") ||
+            n.Contains("atmosphere") ||
+            n.Contains("cloud") ||
+            n.Contains("surface") ||
+            n.Contains("hydrogen") ||
+            n.Contains("tablet");
+    }
+
+    Transform GetPlanetLayerMoveRoot(Transform start, string planetKey, Transform selectedPlanet)
+    {
+        Transform current = start;
+        Transform best = start;
+
+        while (current.parent != null && current.parent != selectedPlanet)
+        {
+            if (LooksLikePlanetLayerCompanion(current.parent.name, planetKey))
+            {
+                best = current.parent;
+                current = current.parent;
+                continue;
+            }
+
+            break;
+        }
+
+        return best;
     }
 
     void MoveSaturnRingWithPlanet(Transform planet, Vector3 delta)
@@ -1776,6 +1889,9 @@ public class SolarSystemAnalysisMode : MonoBehaviour
         selectedPlanetRingXZ.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         selectedPlanetRingYZ.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
 
+        distancePlanetAIndicatorRoot = CreateCompareIndicatorRoot("Distance Planet A Green Indicator");
+        distancePlanetBIndicatorRoot = CreateCompareIndicatorRoot("Distance Planet B Green Indicator");
+
         comparePlanetAIndicatorRoot = CreateCompareIndicatorRoot("Compare Planet A Green Indicator");
         comparePlanetBIndicatorRoot = CreateCompareIndicatorRoot("Compare Planet B Green Indicator");
 
@@ -1825,6 +1941,20 @@ public class SolarSystemAnalysisMode : MonoBehaviour
 
     void UpdateSelectedPlanetIndicator()
     {
+        if (currentPage == AnalysisPage.Distance)
+        {
+            if (selectedPlanetIndicatorRoot != null)
+            {
+                selectedPlanetIndicatorRoot.SetActive(false);
+            }
+
+            SetIndicatorOnPlanet(distancePlanetAIndicatorRoot, distancePlanetA);
+            SetIndicatorOnPlanet(distancePlanetBIndicatorRoot, distancePlanetB);
+            return;
+        }
+
+        HideDistancePlanetIndicators();
+
         if (activeMovePlanet == null || selectedPlanetIndicatorRoot == null)
         {
             HideSelectedPlanetIndicator();
@@ -1846,6 +1976,21 @@ public class SolarSystemAnalysisMode : MonoBehaviour
         if (selectedPlanetIndicatorRoot != null)
         {
             selectedPlanetIndicatorRoot.SetActive(false);
+        }
+
+        HideDistancePlanetIndicators();
+    }
+
+    void HideDistancePlanetIndicators()
+    {
+        if (distancePlanetAIndicatorRoot != null)
+        {
+            distancePlanetAIndicatorRoot.SetActive(false);
+        }
+
+        if (distancePlanetBIndicatorRoot != null)
+        {
+            distancePlanetBIndicatorRoot.SetActive(false);
         }
     }
 
@@ -2745,19 +2890,28 @@ public class SolarSystemAnalysisMode : MonoBehaviour
             hologramRoot.transform,
             Vector3.zero,
             Vector3.zero,
-            new Vector3(0.54f, 0.34f, 0.010f),
+            new Vector3(0.62f, 0.38f, 0.010f),
             panelMaterial,
             false
         );
 
-        CreateCube("Analysis Panel Top Border", hologramRoot.transform, new Vector3(0f, 0.175f, -0.006f), Vector3.zero, new Vector3(0.56f, 0.010f, 0.010f), borderMaterial, false);
-        CreateCube("Analysis Panel Bottom Border", hologramRoot.transform, new Vector3(0f, -0.175f, -0.006f), Vector3.zero, new Vector3(0.56f, 0.010f, 0.010f), borderMaterial, false);
-        CreateCube("Analysis Panel Left Border", hologramRoot.transform, new Vector3(-0.28f, 0f, -0.006f), Vector3.zero, new Vector3(0.010f, 0.35f, 0.010f), borderMaterial, false);
-        CreateCube("Analysis Panel Right Border", hologramRoot.transform, new Vector3(0.28f, 0f, -0.006f), Vector3.zero, new Vector3(0.010f, 0.35f, 0.010f), borderMaterial, false);
+        CreateCube("Analysis Panel Top Border", hologramRoot.transform, new Vector3(0f, 0.195f, -0.006f), Vector3.zero, new Vector3(0.64f, 0.010f, 0.010f), borderMaterial, false);
+        CreateCube("Analysis Panel Bottom Border", hologramRoot.transform, new Vector3(0f, -0.195f, -0.006f), Vector3.zero, new Vector3(0.64f, 0.010f, 0.010f), borderMaterial, false);
+        CreateCube("Analysis Panel Left Border", hologramRoot.transform, new Vector3(-0.32f, 0f, -0.006f), Vector3.zero, new Vector3(0.010f, 0.39f, 0.010f), borderMaterial, false);
+        CreateCube("Analysis Panel Right Border", hologramRoot.transform, new Vector3(0.32f, 0f, -0.006f), Vector3.zero, new Vector3(0.010f, 0.39f, 0.010f), borderMaterial, false);
 
-        titleText = CreateText("Analysis Title", hologramRoot.transform, new Vector3(-0.245f, 0.125f, -0.018f), 0.010f);
-        bodyText = CreateText("Analysis Body", hologramRoot.transform, new Vector3(-0.245f, 0.045f, -0.018f), 0.0062f);
-        footerText = CreateText("Analysis Footer", hologramRoot.transform, new Vector3(-0.245f, -0.135f, -0.018f), 0.0055f);
+        titleText = CreateText("Analysis Title", hologramRoot.transform, new Vector3(0f, 0.145f, -0.018f), 0.0095f);
+        titleText.fontSize = 54;
+        titleText.anchor = TextAnchor.MiddleCenter;
+        titleText.alignment = TextAlignment.Center;
+
+        bodyText = CreateText("Analysis Body", hologramRoot.transform, new Vector3(-0.265f, 0.075f, -0.018f), 0.0056f);
+        bodyText.fontSize = 44;
+
+        footerText = CreateText("Analysis Footer", hologramRoot.transform, new Vector3(0f, -0.150f, -0.018f), 0.0048f);
+        footerText.fontSize = 36;
+        footerText.anchor = TextAnchor.MiddleCenter;
+        footerText.alignment = TextAlignment.Center;
 
         menuRoot = new GameObject("Analysis Menu Buttons");
         menuRoot.transform.SetParent(hologramRoot.transform);
@@ -2765,10 +2919,10 @@ public class SolarSystemAnalysisMode : MonoBehaviour
         menuRoot.transform.localRotation = Quaternion.identity;
         menuRoot.transform.localScale = Vector3.one;
 
-        CreateButton("AnalysisButton_Distance", "DISTANCE", menuRoot.transform, new Vector3(-0.150f, -0.035f, -0.020f));
-        CreateButton("AnalysisButton_Compare", "COMPARE", menuRoot.transform, new Vector3(0.150f, -0.035f, -0.020f));
-        CreateButton("AnalysisButton_Moons", "MOONS", menuRoot.transform, new Vector3(-0.150f, -0.105f, -0.020f));
-        CreateButton("AnalysisButton_Exit", "EXIT", menuRoot.transform, new Vector3(0.150f, -0.105f, -0.020f));
+        CreateButton("AnalysisButton_Distance", "DISTANCE", menuRoot.transform, new Vector3(-0.145f, -0.035f, -0.020f));
+        CreateButton("AnalysisButton_Compare", "COMPARE", menuRoot.transform, new Vector3(0.145f, -0.035f, -0.020f));
+        CreateButton("AnalysisButton_Moons", "MOONS", menuRoot.transform, new Vector3(-0.145f, -0.110f, -0.020f));
+        CreateButton("AnalysisButton_Exit", "EXIT", menuRoot.transform, new Vector3(0.145f, -0.110f, -0.020f));
 
         distanceRoot = new GameObject("Distance Page Root");
         distanceRoot.transform.SetParent(hologramRoot.transform);
@@ -3511,7 +3665,7 @@ public class SolarSystemAnalysisMode : MonoBehaviour
             parent,
             localPosition,
             Vector3.zero,
-            new Vector3(0.22f, 0.060f, 0.035f),
+            new Vector3(0.24f, 0.058f, 0.035f),
             buttonMaterial,
             true
         );
@@ -3519,11 +3673,11 @@ public class SolarSystemAnalysisMode : MonoBehaviour
         TextMesh buttonText = CreateText(
             objectName + "_Text",
             button.transform,
-            new Vector3(0f, -0.002f, -0.026f),
-            0.017f
+            new Vector3(0f, -0.001f, -0.026f),
+            label.Length > 7 ? 0.0125f : 0.0155f
         );
 
-        buttonText.fontSize = 96;
+        buttonText.fontSize = label.Length > 7 ? 76 : 88;
         buttonText.anchor = TextAnchor.MiddleCenter;
         buttonText.alignment = TextAlignment.Center;
         buttonText.text = label;
