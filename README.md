@@ -1,135 +1,135 @@
-# Unity Solar System VR
+# VR Solar System
 
-A VR solar system exploration project built in Unity. The final working scene is:
+A VR solar system exploration project built in Unity. The user flies through a to-scale model of the solar system, splits planets open with a hand-held gun to reveal their internal layers (crust/mantle/core for rocky planets, atmosphere/hydrogen layers for gas and ice giants), and can use an Analysis Mode to compare planets, measure distances between them, and inspect their moons.
 
-`Assets/Solar system backup 2.unity`
+This guide is written for someone setting the project up for the **first time**, with no assumptions about prior Unity or Git experience.
 
-This repository is cleaned so it contains only the files needed for the current working project: code, scene, project settings, packages, and referenced assets.
+## 1. What You Need Before Starting
 
-## Required Environment
+Install these first, in this order:
 
-Use the same setup for everyone on the team:
+1. **Unity Hub** — download from [unity.com/download](https://unity.com/download). Unity Hub is the launcher that manages Unity Editor versions and projects; you do not install Unity itself directly.
+2. **Unity Editor version `6000.4.5f1`** — installed *through* Unity Hub (see step-by-step below), not downloaded separately.
+3. **Git** — needed to download (clone) the project. On Windows, install [Git for Windows](https://git-scm.com/download/win). On macOS, Git usually comes with Xcode Command Line Tools, or install via [git-scm.com](https://git-scm.com/download/mac).
+4. **Git LFS** (Git Large File Storage) — this project stores large files (textures, audio, HDRI skyboxes) through Git LFS. Without it, those files will silently fail to download correctly. Install from [git-lfs.com](https://git-lfs.com/), then run this once in a terminal:
+   ```
+   git lfs install
+   ```
+5. *(Optional, recommended)* **GitHub Desktop** — a graphical alternative to typing Git commands, available at [desktop.github.com](https://desktop.github.com/).
+6. *(Optional)* **A VR headset** (Quest-style controllers) if you want to test the actual VR interaction. **You do not need a headset to open the project, look at the scene, or read the code** — the Unity Editor runs fine without one, and the gun/hologram scripts have a mouse-and-keyboard fallback for testing without hardware (see Section 5).
 
-- Unity Editor: `6000.4.5f1`
-- Unity Hub
-- GitHub Desktop
-- Git LFS
-- Windows PC
-- VR headset/controllers supported by the configured XR setup, tested around Quest-style controls
+This project can be opened and run on both **Windows and macOS** — it was actively developed and tested on macOS during parts of this project.
 
-Unity packages are restored from `Packages/manifest.json`. Main packages used:
+## 2. Download the Project
 
-- High Definition Render Pipeline `17.4.0`
-- Input System `1.19.0`
-- XR Interaction Toolkit `3.4.1`
-- Oculus XR Plugin `4.5.4`
-- OpenXR Plugin `1.17.0`
+**Option A — GitHub Desktop (easier for beginners):**
+1. Open GitHub Desktop.
+2. File → Clone Repository → paste this repository's URL.
+3. Choose a location on your computer and click Clone.
 
-## Important: Git LFS
-
-This project contains large asset files. Before cloning or pulling the project, install Git LFS:
-
-```powershell
-git lfs install
+**Option B — command line:**
+```
+git clone <repository-url>
 ```
 
-If you use GitHub Desktop, install Git LFS on your machine first. Otherwise large files such as `.exr` or `.psd` assets may not download correctly.
+Either way, wait for the download to finish completely before continuing — this repository contains large binary files (textures, HDRI skybox, audio) and the initial clone can take a while.
 
-## First Time Setup
+## 3. Download the Missing "Space Cube" Skybox Asset
 
-1. Install Unity Hub.
-2. Install Unity Editor `6000.4.5f1`.
-3. Install Git and Git LFS.
-4. Clone this repository with GitHub Desktop.
-5. Open Unity Hub.
-6. Click **Add project from disk**.
-7. Select the cloned repository folder.
-8. Open the project with Unity `6000.4.5f1`.
-9. Wait for Unity to import packages and assets.
-10. Open the scene:
+One large environment asset (a cubemap/skybox used to render the star field around the solar system) is **not stored in this Git repository**, because it repeatedly caused upload/download problems through Git and Git LFS. Instead, it's hosted separately here:
 
-```text
-Assets/Solar system backup 2.unity
-```
+**[Google Drive: Space skybox cubemap](https://drive.google.com/drive/folders/1zSDA1SFh0TvLP2tIYuCZ-qPc475b6TUw)**
 
-11. Press Play, or connect/build to the VR headset using the configured XR settings.
+To use it:
+1. Open the link above and download the file(s) in that folder.
+2. Copy the downloaded file(s) into the project's `Assets/` folder (inside the `VR Solar System` project folder you cloned in Step 2).
+3. If Unity is already open, right-click in the Project window and choose **Reimport All** so it picks up the new file.
 
-## What Is In The Project
+Without this asset, the project will still open and run, but the space/star background around the solar system will not render correctly (you may see a blank or pink background instead of stars).
 
-The current clean project keeps:
+## 4. Install Unity and Open the Project
 
-- Final Unity scene
-- Solar system planet assets/materials
-- Spaceship third-person VR controller
-- Wormhole travel system
-- Quest joystick movement
-- Gun laser and gun visual scripts
-- Solar system analysis mode
-- Earth wrist hologram / info target scripts
-- XR, HDRP, and project settings
+1. Open **Unity Hub**.
+2. Go to the **Installs** tab → **Install Editor** → find and install version **`6000.4.5f1`** specifically (not just "the latest version" — using a different version can corrupt the scene). If Unity Hub prompts you with a version-mismatch warning when opening the project later, choose to install the exact version it asks for.
+3. Go to the **Projects** tab → **Add** → **Add project from disk**.
+4. Select the `VR Solar System` folder (the one containing the `Assets`, `Packages`, and `ProjectSettings` folders — this is *inside* the folder you cloned in Step 2, not the top-level repository folder).
+5. Click the project to open it. Unity will spend a few minutes importing packages and assets the first time — this is normal, let it finish.
+6. If a **HDRP Wizard** window pops up automatically, that's expected and safe — everything under "Global" and "Current Quality" should already show green checkmarks. You can close this window; no action is needed unless something shows a red warning.
 
-## Main Scripts
+## 5. Open the Scene and Run It
 
-- `SpaceshipThirdPersonController.cs` - spaceship mode, ship movement, third-person camera placement
-- `WormholeIntroTravel.cs` - wormhole transition and intro movement logic
-- `QuestJoystickMove.cs` - normal VR movement outside ship mode
-- `SolarSystemAnalysisMode.cs` - analysis mode and planet information controls
-- `QuestHandGunLaser.cs` - gun laser interaction
-- `BetterSciFiGunVisual.cs` - gun visual builder
-- `EarthLayerWristHologram.cs` - wrist hologram UI
-- `EarthLayerInfoTarget.cs` - Earth layer info display target
-- `ExactHalfPlanetSplitter.cs` and `VenusHalfPlanetSplitter.cs` - planet splitting visuals
+1. In the **Project** window (bottom panel), find and double-click:
+   ```
+   Assets/Solar system backup 2.unity
+   ```
+2. Press the **Play** button (▶) at the top of the Editor.
+3. **If you don't have a VR headset connected**, you can still test the core interactions with mouse and keyboard:
+   - **Hold the left mouse button** to aim (equivalent to the left controller trigger).
+   - **Right-click** to fire the gun and split whichever planet you're aiming at.
+4. **If you do have a Quest-style headset** connected and configured, put it on and use the controls listed below.
 
-## Scene Notes
+You should see the player start in a small **tutorial lobby**, with on-screen prompts explaining movement and shooting. Pulling the trigger/pressing the menu button there sends you through a wormhole into the solar system itself, where you can fly to any planet, shoot it to split it open, and point your other hand at the exposed layers to read information about them in a hologram panel.
 
-The final scene contains the active VR rig:
+## 6. Controls
 
-- `XR Origin (VR)`
-- `Main Camera`
-- `LeftHand Controller`
-- `RightHand Controller`
-- `ShipSpawnPoint`
-- `ShipExitPoint`
-- `SolarSystemLandingPoint`
+Quest-style controls:
 
-Project build settings are already pointed at:
+- **Left stick**: move / fly
+- **Right stick**: turn / camera
+- **Left grip**: toggle between Spaceship mode and Astronaut (free-movement) mode
+- **A / B buttons**: move up / down
+- **Left trigger**: aim (shows a targeting beam)
+- **Right trigger**: fire the gun (splits whatever planet is hit)
+- **Left Y button**: open/close Analysis Mode (Distance, Compare, and Moons pages)
+- **Menu button**: activates the wormhole from the lobby into the solar system
 
-```text
-Assets/Solar system backup 2.unity
-```
+## 7. What's In the Project
 
-## Controls
+- All eight planets (Mercury through Neptune) can be split open to reveal scientifically-based internal layers.
+- A hologram on the left hand identifies whichever layer you're pointing at, in real time.
+- An **Analysis Mode** lets you compare two planets' atmospheric composition, measure the distance between planets, and view a planet's moons.
+- A procedurally generated **asteroid belt** sits at its real proportional distance between Mars and Jupiter.
+- A **tutorial lobby** teaches the controls before the player enters the solar system.
+- Spaceship third-person travel, a wormhole transition effect, procedural ambient/action audio, and a Sun destruction effect.
 
-Current behavior is based on Quest-style controls:
+### Main Scripts
 
-- Left thumbstick: movement/ship movement depending on mode
-- Right thumbstick: ship turning / camera turning depending on mode
-- Left grip: toggle ship mode and astronaut mode
-- Right A/B: vertical movement where enabled
-- Left menu / glove button: wormhole trigger
+- `PlanetHalfPlanetSplitter.cs` / `PlanetSplitMeshUtility.cs` — internal-layer splitting for Mercury, Mars, Jupiter, Saturn, Uranus, and Neptune (shared implementation).
+- `ExactHalfPlanetSplitter.cs` / `VenusHalfPlanetSplitter.cs` — internal-layer splitting for Earth and Venus (each has its own implementation).
+- `EarthLayerWristHologram.cs` — the left-hand hologram that identifies planets/layers in real time.
+- `AsteroidBeltGenerator.cs` — procedurally scatters the Main Asteroid Belt.
+- `SolarSystemAnalysisMode.cs` — the Distance / Compare / Moons analysis menu.
+- `LobbyTutorialSystem.cs` — the tutorial lobby shown at the start of a session.
+- `QuestHandGunLaser.cs` / `BetterSciFiGunVisual.cs` — the gun's aim/fire logic and visual model.
+- `SpaceshipThirdPersonController.cs` / `WormholeIntroTravel.cs` / `QuestJoystickMove.cs` — movement and travel between the lobby and the solar system.
+- `SunDestructionController.cs` / `ProceduralSolarSystemAudio.cs` — Sun visual effect and procedural audio.
 
-## If Something Looks Missing
+## 8. Project Documentation
 
-If textures or large assets are missing after cloning:
+A written report describing the project's design and implementation (for course submission) is included at `VR_Solar_System_Report.tex`, formatted using the IEEE VGTC/TVCG journal template (the required class file and bibliography style files are included alongside it in this repository, so it can be compiled directly, e.g. by uploading the whole repository folder to [Overleaf](https://www.overleaf.com/)).
 
-1. Confirm Git LFS is installed.
+`Project_Directory_Structure.txt` lists every file and folder in this repository, with a short note on what the key ones are. If anything looks missing or out of place after cloning, or if you're not sure where a particular file is supposed to be, check that file first.
+
+## 9. Troubleshooting
+
+**Textures or the skybox look wrong / missing after cloning:**
+1. Confirm Git LFS is installed (`git lfs install`).
 2. In the repository folder, run:
+   ```
+   git lfs pull
+   ```
+3. Confirm you've also downloaded the separate skybox asset from the Google Drive link in Section 3.
+4. Reopen Unity and let it reimport (right-click in the Project window → Reimport All).
 
-```powershell
-git lfs pull
-```
+**Unity asks to install a different Editor version:**
+Install the exact version it requests (should be `6000.4.5f1`). Using a different version can cause the scene or HDRP settings to behave unexpectedly.
 
-3. Reopen Unity and let it reimport.
+**No VR headset available:**
+See Section 5 — the Editor supports mouse-and-keyboard testing for the gun and hologram without a headset.
 
-## GitHub Notes
+## 10. For Contributors: Git Notes
 
-Do not commit Unity generated folders. They are ignored by `.gitignore`:
-
-- `Library/`
-- `Temp/`
-- `Obj/`
-- `Logs/`
-- `UserSettings/`
-- generated `.csproj` and solution files
+Do not commit Unity-generated folders — they're already excluded by `.gitignore`:
+- `Library/`, `Temp/`, `Obj/`, `Logs/`, `UserSettings/`, generated `.csproj`/solution files
 
 Only commit source files, scenes, assets, packages, and project settings.
