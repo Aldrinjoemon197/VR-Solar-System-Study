@@ -1,0 +1,376 @@
+PROJECT DIRECTORY STRUCTURE — REFERENCE
+Generated: 2026-07-13
+
+This file lists every file and folder that is actually committed to this
+repository, for reference if something looks missing or out of place
+after cloning. It excludes Unity's own generated cache folders (Library/,
+Temp/, UserSettings/), which get rebuilt automatically and are not part
+of the project.
+
+Note: a few local-only files exist on team members' machines but are
+deliberately NOT committed here and so are not listed below:
+  - References/          raw source papers cited in the report (large,
+                         third-party PDFs; full citation info is already
+                         in VR_Solar_System_Report.bib)
+  - the example report PDF and the project PPTX used for early planning
+  - personal working notes
+
+Key locations:
+  VR Solar System/                        <- the actual Unity project (open THIS folder in Unity Hub)
+  VR Solar System/Assets/                 <- all game scripts, scenes, and assets
+  VR Solar System/Assets/Solar system backup 2.unity   <- the main scene to open
+  README.md                               <- setup and run instructions
+  VR_Solar_System_Report.tex / .bib       <- the written project report (LaTeX)
+  vgtc.cls, abbrv-doi*.bst, diamondrule.*  <- the VGTC/TVCG template files needed to compile the report
+  figs/                                   <- screenshots/images used in the report
+
+See README.md for the Google Drive link to the separately-hosted skybox
+asset, which is not included in this file listing since it is not part
+of this repository.
+
+----------------------------------------------------------------------
+
+.
+├── VR Solar System
+│   ├── .vscode
+│   │   ├── extensions.json
+│   │   ├── launch.json
+│   │   └── settings.json
+│   ├── Assets
+│   │   ├── AstronautHandVR
+│   │   │   ├── Model
+│   │   │   │   ├── AstronautHand.fbx
+│   │   │   │   └── AstronautHand.fbx.meta
+│   │   │   ├── Textures
+│   │   │   │   ├── HandAstronautLP_None.003_AlbedoTransparency 1.png
+│   │   │   │   └── HandAstronautLP_None.003_AlbedoTransparency 1.png.meta
+│   │   │   ├── AstronautHandMat.mat
+│   │   │   ├── AstronautHandMat.mat.meta
+│   │   │   ├── Model.meta
+│   │   │   └── Textures.meta
+│   │   ├── Materials
+│   │   │   ├── Jup.mat
+│   │   │   ├── Jup.mat.meta
+│   │   │   ├── photo-stone-texture-pattern 1.mat
+│   │   │   ├── photo-stone-texture-pattern 1.mat.meta
+│   │   │   ├── photo-stone-texture-pattern 2.mat
+│   │   │   ├── photo-stone-texture-pattern 2.mat.meta
+│   │   │   ├── photo-stone-texture-pattern 3.mat
+│   │   │   ├── photo-stone-texture-pattern 3.mat.meta
+│   │   │   ├── photo-stone-texture-pattern.mat
+│   │   │   ├── photo-stone-texture-pattern.mat.meta
+│   │   │   ├── sun 3.mat
+│   │   │   └── sun 3.mat.meta
+│   │   ├── Settings
+│   │   │   ├── HDRPDefaultResources
+│   │   │   │   ├── DefaultLookDevProfile.asset
+│   │   │   │   ├── DefaultLookDevProfile.asset.meta
+│   │   │   │   ├── DefaultSettingsVolumeProfile.asset
+│   │   │   │   ├── DefaultSettingsVolumeProfile.asset.meta
+│   │   │   │   ├── HDRenderPipelineAsset.asset
+│   │   │   │   ├── HDRenderPipelineAsset.asset.meta
+│   │   │   │   ├── HDRenderPipelineGlobalSettings.asset
+│   │   │   │   └── HDRenderPipelineGlobalSettings.asset.meta
+│   │   │   ├── HDRP Balanced.asset
+│   │   │   ├── HDRP Balanced.asset.meta
+│   │   │   ├── HDRP High Fidelity.asset
+│   │   │   ├── HDRP High Fidelity.asset.meta
+│   │   │   ├── HDRP Performant.asset
+│   │   │   ├── HDRP Performant.asset.meta
+│   │   │   └── HDRPDefaultResources.meta
+│   │   ├── Sparrow_Fighter
+│   │   │   ├── Meshes
+│   │   │   │   ├── Materials
+│   │   │   │   │   ├── Sparrow_blue.mat
+│   │   │   │   │   ├── Sparrow_blue.mat.meta
+│   │   │   │   │   ├── Sparrow_blue_MaskMap.png
+│   │   │   │   │   ├── Sparrow_blue_MaskMap.png.meta
+│   │   │   │   │   ├── Sparrow_grey.mat
+│   │   │   │   │   ├── Sparrow_grey.mat.meta
+│   │   │   │   │   ├── Sparrow_grey_MaskMap.png
+│   │   │   │   │   ├── Sparrow_grey_MaskMap.png.meta
+│   │   │   │   │   ├── Sparrow_orange.mat
+│   │   │   │   │   ├── Sparrow_orange.mat.meta
+│   │   │   │   │   ├── Sparrow_orange_MaskMap.png
+│   │   │   │   │   └── Sparrow_orange_MaskMap.png.meta
+│   │   │   │   ├── Materials.meta
+│   │   │   │   ├── Sparrow_blue.FBX
+│   │   │   │   ├── Sparrow_blue.FBX.meta
+│   │   │   │   ├── Sparrow_grey.FBX
+│   │   │   │   ├── Sparrow_grey.FBX.meta
+│   │   │   │   ├── Sparrow_orange.FBX
+│   │   │   │   └── Sparrow_orange.FBX.meta
+│   │   │   ├── PSD File
+│   │   │   │   ├── Sparrow_Fighter.psd
+│   │   │   │   └── Sparrow_Fighter.psd.meta
+│   │   │   ├── Prefabs
+│   │   │   │   ├── Sparrow_blue Variant.prefab
+│   │   │   │   ├── Sparrow_blue Variant.prefab.meta
+│   │   │   │   ├── Sparrow_grey Variant.prefab
+│   │   │   │   ├── Sparrow_grey Variant.prefab.meta
+│   │   │   │   ├── Sparrow_orange Variant.prefab
+│   │   │   │   └── Sparrow_orange Variant.prefab.meta
+│   │   │   ├── Textures
+│   │   │   │   ├── Sparrow_AO.tif
+│   │   │   │   ├── Sparrow_AO.tif.meta
+│   │   │   │   ├── Sparrow_blue.tif
+│   │   │   │   ├── Sparrow_blue.tif.meta
+│   │   │   │   ├── Sparrow_emissive.tif
+│   │   │   │   ├── Sparrow_emissive.tif.meta
+│   │   │   │   ├── Sparrow_grey.tif
+│   │   │   │   ├── Sparrow_grey.tif.meta
+│   │   │   │   ├── Sparrow_mask1.tif
+│   │   │   │   ├── Sparrow_mask1.tif.meta
+│   │   │   │   ├── Sparrow_mask2.tif
+│   │   │   │   ├── Sparrow_mask2.tif.meta
+│   │   │   │   ├── Sparrow_metallic.tif
+│   │   │   │   ├── Sparrow_metallic.tif.meta
+│   │   │   │   ├── Sparrow_normal.tif
+│   │   │   │   ├── Sparrow_normal.tif.meta
+│   │   │   │   ├── Sparrow_orange.tif
+│   │   │   │   ├── Sparrow_orange.tif.meta
+│   │   │   │   ├── Sparrow_roughness.tif
+│   │   │   │   └── Sparrow_roughness.tif.meta
+│   │   │   ├── Meshes.meta
+│   │   │   ├── PSD File.meta
+│   │   │   ├── Prefabs.meta
+│   │   │   ├── Sparrow_Fighter.unity
+│   │   │   ├── Sparrow_Fighter.unity.meta
+│   │   │   └── Textures.meta
+│   │   ├── XR
+│   │   │   ├── Loaders
+│   │   │   │   ├── OculusLoader.asset
+│   │   │   │   ├── OculusLoader.asset.meta
+│   │   │   │   ├── OpenXRLoader.asset
+│   │   │   │   └── OpenXRLoader.asset.meta
+│   │   │   ├── Settings
+│   │   │   │   ├── OculusSettings.asset
+│   │   │   │   ├── OculusSettings.asset.meta
+│   │   │   │   ├── OpenXR Package Settings.asset
+│   │   │   │   └── OpenXR Package Settings.asset.meta
+│   │   │   ├── Loaders.meta
+│   │   │   ├── Settings.meta
+│   │   │   ├── XRGeneralSettingsPerBuildTarget.asset
+│   │   │   └── XRGeneralSettingsPerBuildTarget.asset.meta
+│   │   ├── XRI
+│   │   │   ├── Settings
+│   │   │   │   ├── Resources
+│   │   │   │   │   ├── InteractionLayerSettings.asset
+│   │   │   │   │   ├── InteractionLayerSettings.asset.meta
+│   │   │   │   │   ├── XRDeviceSimulatorSettings.asset
+│   │   │   │   │   ├── XRDeviceSimulatorSettings.asset.meta
+│   │   │   │   │   ├── XRInteractionRuntimeSettings.asset
+│   │   │   │   │   └── XRInteractionRuntimeSettings.asset.meta
+│   │   │   │   ├── Resources.meta
+│   │   │   │   ├── XRInteractionEditorSettings.asset
+│   │   │   │   └── XRInteractionEditorSettings.asset.meta
+│   │   │   └── Settings.meta
+│   │   ├── project
+│   │   │   ├── Sputnik_1
+│   │   │   │   ├── Materials
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency.mat
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency.mat.meta
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency_MaskMap.png
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency_MaskMap.png.meta
+│   │   │   │   │   ├── sputnik_02_AlbedoTransparency.mat
+│   │   │   │   │   ├── sputnik_02_AlbedoTransparency.mat.meta
+│   │   │   │   │   ├── sputnik_02_AlbedoTransparency_MaskMap.png
+│   │   │   │   │   └── sputnik_02_AlbedoTransparency_MaskMap.png.meta
+│   │   │   │   ├── Meshes
+│   │   │   │   │   ├── Sputnik_1.fbx
+│   │   │   │   │   └── Sputnik_1.fbx.meta
+│   │   │   │   ├── Prefabs
+│   │   │   │   │   ├── Sputnik_1.prefab
+│   │   │   │   │   └── Sputnik_1.prefab.meta
+│   │   │   │   ├── Textures
+│   │   │   │   │   ├── sputnik_01_AO.tga
+│   │   │   │   │   ├── sputnik_01_AO.tga.meta
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency.tga
+│   │   │   │   │   ├── sputnik_01_AlbedoTransparency.tga.meta
+│   │   │   │   │   ├── sputnik_01_MetallicSmoothness.tga
+│   │   │   │   │   ├── sputnik_01_MetallicSmoothness.tga.meta
+│   │   │   │   │   ├── sputnik_01_Normal.tga
+│   │   │   │   │   ├── sputnik_01_Normal.tga.meta
+│   │   │   │   │   ├── sputnik_02_AO.tga
+│   │   │   │   │   ├── sputnik_02_AO.tga.meta
+│   │   │   │   │   ├── sputnik_02_AlbedoTransparency.tga
+│   │   │   │   │   ├── sputnik_02_AlbedoTransparency.tga.meta
+│   │   │   │   │   ├── sputnik_02_MetallicSmoothness.tga
+│   │   │   │   │   ├── sputnik_02_MetallicSmoothness.tga.meta
+│   │   │   │   │   ├── sputnik_02_Normal.tga
+│   │   │   │   │   └── sputnik_02_Normal.tga.meta
+│   │   │   │   ├── Materials.meta
+│   │   │   │   ├── Meshes.meta
+│   │   │   │   ├── Prefabs.meta
+│   │   │   │   └── Textures.meta
+│   │   │   └── Sputnik_1.meta
+│   │   ├── solar system
+│   │   │   ├── Sky and Fog Volume Profile.asset
+│   │   │   └── Sky and Fog Volume Profile.asset.meta
+│   │   ├── AsteroidBeltGenerator.cs
+│   │   ├── AsteroidBeltGenerator.cs.meta
+│   │   ├── AstronautHandVR.meta
+│   │   ├── BetterSciFiGunVisual.cs
+│   │   ├── BetterSciFiGunVisual.cs.meta
+│   │   ├── EarthLayerInfoTarget.cs
+│   │   ├── EarthLayerInfoTarget.cs.meta
+│   │   ├── EarthLayerWristHologram.cs
+│   │   ├── EarthLayerWristHologram.cs.meta
+│   │   ├── ExactHalfPlanetSplitter.cs
+│   │   ├── ExactHalfPlanetSplitter.cs.meta
+│   │   ├── InputSystem_Actions.inputactions
+│   │   ├── InputSystem_Actions.inputactions.meta
+│   │   ├── Jup.png
+│   │   ├── Jup.png.meta
+│   │   ├── LobbyTutorialSystem.cs
+│   │   ├── LobbyTutorialSystem.cs.meta
+│   │   ├── Materials.meta
+│   │   ├── Move.anim
+│   │   ├── Move.anim.meta
+│   │   ├── New Material 1.mat
+│   │   ├── New Material 1.mat.meta
+│   │   ├── New Material 2.mat
+│   │   ├── New Material 2.mat.meta
+│   │   ├── New Material 4.mat
+│   │   ├── New Material 4.mat.meta
+│   │   ├── New Material 5.mat
+│   │   ├── New Material 5.mat.meta
+│   │   ├── New Material 6.mat
+│   │   ├── New Material 6.mat.meta
+│   │   ├── New Material 7.mat
+│   │   ├── New Material 7.mat.meta
+│   │   ├── New Material.mat
+│   │   ├── New Material.mat.meta
+│   │   ├── NightSkyHDRI009_8K_HDR 1.exr
+│   │   ├── NightSkyHDRI009_8K_HDR 1.exr.meta
+│   │   ├── NightSkyHDRI009_8K_HDR.exr
+│   │   ├── NightSkyHDRI009_8K_HDR.exr.meta
+│   │   ├── PlanetHalfPlanetSplitter.cs
+│   │   ├── PlanetHalfPlanetSplitter.cs.meta
+│   │   ├── PlanetSplitMeshUtility.cs
+│   │   ├── PlanetSplitMeshUtility.cs.meta
+│   │   ├── QuestHandGunLaser.cs
+│   │   ├── QuestHandGunLaser.cs.meta
+│   │   ├── QuestJoystickMove.cs
+│   │   ├── QuestJoystickMove.cs.meta
+│   │   ├── Sat.png
+│   │   ├── Sat.png.meta
+│   │   ├── Settings.meta
+│   │   ├── Solar system backup 2.unity
+│   │   ├── Solar system backup 2.unity.meta
+│   │   ├── SolarSystemAnalysisMode.cs
+│   │   ├── SolarSystemAnalysisMode.cs.meta
+│   │   ├── SpaceshipThirdPersonController.cs
+│   │   ├── SpaceshipThirdPersonController.cs.meta
+│   │   ├── Sparrow_Fighter.meta
+│   │   ├── Sphere.controller
+│   │   ├── Sphere.controller.meta
+│   │   ├── VenusHalfPlanetSplitter.cs
+│   │   ├── VenusHalfPlanetSplitter.cs.meta
+│   │   ├── WormholeIntroTravel.cs
+│   │   ├── WormholeIntroTravel.cs.meta
+│   │   ├── XR.meta
+│   │   ├── XRI.meta
+│   │   ├── earth 3.jpeg
+│   │   ├── earth 3.jpeg.meta
+│   │   ├── earth.mat
+│   │   ├── earth.mat.meta
+│   │   ├── l2iu9i6mdq8kf7159ooisou302-4cb482f5e65a7dde9b4ade870f457b20.png
+│   │   ├── l2iu9i6mdq8kf7159ooisou302-4cb482f5e65a7dde9b4ade870f457b20.png.meta
+│   │   ├── mars.png
+│   │   ├── mars.png.meta
+│   │   ├── mercury.png
+│   │   ├── mercury.png.meta
+│   │   ├── moon.jpg
+│   │   ├── moon.jpg.meta
+│   │   ├── nep.png
+│   │   ├── nep.png.meta
+│   │   ├── photo-stone-texture-pattern.jpg
+│   │   ├── photo-stone-texture-pattern.jpg.meta
+│   │   ├── project.meta
+│   │   ├── rotation.cs
+│   │   ├── rotation.cs.meta
+│   │   ├── solar system.meta
+│   │   ├── sun rotation.cs
+│   │   ├── sun rotation.cs.meta
+│   │   ├── sun.jpeg
+│   │   ├── sun.jpeg.meta
+│   │   ├── ura.png
+│   │   ├── ura.png.meta
+│   │   ├── venus.jpeg
+│   │   └── venus.jpeg.meta
+│   ├── Logs
+│   │   ├── AssetImportWorker0-prev.log
+│   │   ├── AssetImportWorker0.log
+│   │   ├── AssetImportWorker1-prev.log
+│   │   ├── AssetImportWorker1.log
+│   │   ├── relay.txt
+│   │   ├── shadercompiler-AssetImportWorker0-0.log
+│   │   ├── shadercompiler-AssetImportWorker1-0.log
+│   │   ├── shadercompiler-UnityShaderCompiler-0.log
+│   │   ├── trace-config.json
+│   │   └── traces.jsonl
+│   ├── Packages
+│   │   ├── manifest.json
+│   │   └── packages-lock.json
+│   ├── ProjectSettings
+│   │   ├── Packages
+│   │   │   ├── com.unity.ai.assistant
+│   │   │   │   └── Settings.json
+│   │   │   └── com.unity.testtools.codecoverage
+│   │   │       └── Settings.json
+│   │   ├── AudioManager.asset
+│   │   ├── ClusterInputManager.asset
+│   │   ├── DynamicsManager.asset
+│   │   ├── EditorBuildSettings.asset
+│   │   ├── EditorSettings.asset
+│   │   ├── GraphicsSettings.asset
+│   │   ├── HDRPProjectSettings.asset
+│   │   ├── InputManager.asset
+│   │   ├── MemorySettings.asset
+│   │   ├── MultiplayerManager.asset
+│   │   ├── NavMeshAreas.asset
+│   │   ├── PackageManagerSettings.asset
+│   │   ├── Physics2DSettings.asset
+│   │   ├── PresetManager.asset
+│   │   ├── ProjectSettings.asset
+│   │   ├── ProjectVersion.txt
+│   │   ├── QualitySettings.asset
+│   │   ├── SceneTemplateSettings.json
+│   │   ├── ShaderGraphSettings.asset
+│   │   ├── TagManager.asset
+│   │   ├── TimeManager.asset
+│   │   ├── UnityConnectSettings.asset
+│   │   ├── VFXManager.asset
+│   │   ├── VersionControlSettings.asset
+│   │   └── XRSettings.asset
+│   ├── .gitignore
+│   ├── Assembly-CSharp.csproj
+│   └── VR Solar System.slnx
+├── figs
+│   ├── clouds.eps
+│   ├── clouds.jpg
+│   ├── fig_asteroid_belt.jpg
+│   ├── fig_banner_corridor.jpg
+│   ├── fig_hologram_jupiter.jpg
+│   ├── fig_layers_jupiter.jpg
+│   ├── fig_layers_mars.jpg
+│   ├── fig_mode_compare.jpg
+│   ├── fig_mode_distance.jpg
+│   ├── fig_mode_moons.jpg
+│   ├── paper-count-2024.eps
+│   └── paper-count-2024.pdf
+├── .gitattributes
+├── Project_Directory_Structure.txt
+├── README.md
+├── VR_Solar_System_Report.bib
+├── VR_Solar_System_Report.tex
+├── abbrv-doi-hyperref-narrow.bst
+├── abbrv-doi-hyperref.bst
+├── abbrv-doi-narrow.bst
+├── abbrv-doi.bst
+├── diamondrule.eps
+├── diamondrule.pdf
+└── vgtc.cls
+
+36 directories, 306 files
