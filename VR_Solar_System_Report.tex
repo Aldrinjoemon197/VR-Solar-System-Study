@@ -1,0 +1,265 @@
+\documentclass[journal]{vgtc}
+
+\usepackage{float} % keeps figures in place with [H] instead of floating to the end
+
+\onlineid{0}
+\vgtccategory{Research}
+
+\title{An Interactive VR Solar System for Exploring Planetary Internal Structure}
+
+\author{Nikhil, Shubham and Aldrin}
+
+\authorfooter{
+  \item Nikhil is with [University of Stuttgart]. E-mail: [st195046@stud.uni-stuttgart.de]
+  \item Shubham is with [University of Stuttgart]. E-mail: [st193995@stud.uni-stuttgart.de]
+  \item Aldrin is with [University of Stuttgart]. E-mail: [st189180@stud.uni-stuttgart.de]
+}
+
+\abstract{
+Our project is a Virtual Reality application that lets a user fly through a scale model of the solar system and physically look inside each planet. We built it because planetary structure is normally taught through static diagrams, and we wanted users to discover it by playing -- aiming, shooting, and exploring -- rather than reading. Pointing a hand-held tool at a planet splits it in half, exposing internal layers: crust, mantle and core for rocky planets, atmosphere and hydrogen layers for gas and ice giants. A hologram on the user's other hand identifies whichever layer is pointed at in real time. A dedicated Analysis Mode lets users compare planets, measure distances between them, and inspect their moons. The solar system uses a distance and size scale derived from real astronomical values, and a procedurally generated asteroid belt sits at its true location between Mars and Jupiter.
+}
+
+\keywords{VR, Education, Astronomy, Procedural Generation, Unity, XR Interaction Toolkit, HDRP.}
+
+\teaser{
+  \centering
+  \includegraphics[width=0.80\linewidth, alt={Cockpit view of the spaceship flying through the solar system corridor, with the Sun, Jupiter and Saturn visible ahead.}]{fig_banner_corridor}
+  \caption{
+    A view of our VR solar system from the spaceship cockpit, showing the Sun, Jupiter and Saturn laid out along the flight corridor the player travels through.
+  }
+  \label{fig:banner}
+}
+
+\begin{document}
+
+\firstsection{Introduction}
+
+\maketitle
+
+Most people learn about the planets only through books, images or videos -- static material that is read or watched rather than explored. Our motivation is to replace that with something a user discovers by playing: turning astronomy into an interactive VR experience combines learning with an exciting game, so that pointing at or shooting a planet reveals its internal layers, atmosphere, composition and moons as a direct result of the user's own action, rather than a fact pushed at them by a menu.
+
+We also want the experience to create curiosity rather than only deliver information. Questions like how many moons Saturn has, why some planets are made of gas, or why Mercury's core is unusually large relative to its size are exactly the kind of thing exploration, interaction and accurate scientific content together can prompt, especially for younger users, rather than simply making them better informed.
+
+This problem is not unique to astronomy, but it is particularly acute for planetary internal structure specifically: unlike surface features, which can at least be photographed, no camera has ever seen inside a planet, so every textbook cutaway of a crust-mantle-core boundary is already an artist's interpretation flattened into two dimensions. A student is asked to accept a static illustration as an accurate representation of a three-dimensional, differently-proportioned object for each of eight planets, with no way to directly compare that proportion against another planet, or against the planet's actual size and distance from the Sun. We think this is exactly the kind of gap immersive, spatial media is suited to closing, since it can let the proportions themselves -- not just the labels drawn next to them -- be compared directly, at a scale and distance derived from real data rather than chosen for how it looks.
+
+To this end, we built a VR application in which the user flies through a to-scale model of the solar system and splits any of the eight planets open with a hand-held tool to reveal its internal structure -- crust, mantle and core for rocky planets, atmosphere and hydrogen layers for gas and ice giants -- while a hologram on their other hand identifies whichever layer they are pointing at. A dedicated Analysis Mode lets the user step back from this and compare planets, measure distances between them, and inspect their moons, and a small tutorial lobby introduces all of these interactions before the user ever reaches the solar system itself.
+
+Concretely, this paper makes the following contributions: (1) a distance and size scale for all eight planets and the Sun, derived directly from real astronomical values rather than chosen by eye, described and validated in \cref{sec:layout-scale}; (2) a shared, parameterised internal-layer generation system covering all eight planets' true compositional differences, built on top of the two planet-specific implementations first developed for Earth and Venus; (3) a dual-hand interaction model in which aiming, firing and inspecting a layer are separated across the two controllers rather than combined into a single menu-driven action; and (4) a dedicated Analysis Mode and tutorial lobby that let a user compare, measure and learn moon counts independently of the split-and-inspect mechanic, and rehearse the controls before they matter. The remainder of this paper reviews related work, describes the design decisions and implementation behind this experience, discusses its strengths and limitations in the context of that related work, and outlines the future work we consider most valuable.
+
+\section{Background and Related Work}
+A substantial body of work has explored using VR to teach solar system concepts, motivated by the same observation that motivates our project: planetary science is usually taught through static images and text, and immersive, spatial media can make it more engaging.
+
+Several studies evaluate the effectiveness of VR specifically for solar-system education. Saputro and Setyawan~\cite{saputro2020} used a pre-test/post-test design around a purpose-built VR solar-system lesson and found a measurable improvement in physics learning outcomes compared to traditional instruction. Urhan and Akpinar~\cite{urhan2024} took a qualitative approach instead, building a Virtual Reality Solar System Model for a ``Sun System and Eclipses'' unit and interviewing 16 sixth-grade students about their experience, finding generally positive attitudes toward learning astronomy this way but limited insight into what was actually retained. More broadly, Leung et al.~\cite{leung2019} argue that affordable, mobile-powered VR is opening up interactive and collaborative learning experiences that were previously impractical, and Rahman et al.~\cite{rahman2022} systematically review interactive VR laboratories across disciplines, both providing context for why immersive, hands-on VR tools are an increasingly common choice for teaching subject matter such as astronomy rather than a novelty.
+
+Other work focuses specifically on scale and distance, directly relevant to our own distance-accurate layout and Distance analysis mode (\cref{sec:layout-scale}): Yu et al.~\cite{yu2017} studied how digital planetarium visualisations can teach the true scale of the solar system, a question our own AU-derived placement (\cref{sec:layout-scale}) answers architecturally rather than through a dedicated lesson. In a separate study, Yu et al.~\cite{yumoons} ran a pre-/post-test comparison of 781 undergraduates learning Solar System moon concepts under immersive fulldome planetarium projection versus a conventional flat-screen classroom, and found the immersive condition produced the strongest retention gains -- direct evidence that the kind of large-scale, surrounding presentation VR offers (and which our Moons analysis mode adopts for exactly this topic) measurably helps this specific content stick. Mukhtar et al.~\cite{mukhtar2019} developed a multiplayer VR solar system learning tool on Samsung Gear VR, motivated by a lack of two-way interaction in typical classroom delivery. Fernandes et al.~\cite{fernandes2022} systematically review immersive learning frameworks and explicitly identify a lack of consolidated design guidance as an open gap, which is part of why we treat our own design choices (Section~\ref{sec:layout-scale} onward) as worth documenting explicitly rather than leaving implicit in the implementation.
+
+Closest to our own project in form are two solar-system exploration games. Space Rift~\cite{pena} is an Oculus Rift game in which the player explores the solar system and returns safely to Earth while collecting information along the way; it was tested with grade 5 students, who found it enjoyable but sometimes hard to parse the in-game text, an accessibility concern our hologram's short, one-line-per-layer descriptions are deliberately designed to avoid. Fang and Hlavacs' solar-system game~\cite{fang} frames planetary exploration as a space-fighter mission combining cockpit navigation, lasers and radar with astronomy content, prioritising narrative and mission structure over any single teaching mechanic. Our project follows a similar principle to both -- pairing a game-like interaction with accurate scientific content -- but differs in its core mechanic: rather than collecting items, completing missions, or reading a panel, the primary interaction is physically splitting each planet open to reveal its true internal structure, with the panel (our hologram) reporting only what the user is already looking at rather than a separate destination to visit.
+
+Taken together, this prior work either evaluates VR's general educational effectiveness without a specific structure-revealing mechanic, offers exploration or mission-based games with information delivered through separate panels rather than through the interaction itself, or addresses scale and distance at the level of the whole solar system without also addressing what a planet is made of internally. Our project's contribution relative to this body of work is combining all three within one consistent interaction model: an accurate distance and size scale, a physically interactive reveal of real internal structure per planet, and a dedicated comparison mode for distance, composition and moons, rather than any one of these treated in isolation.
+
+Our implementation also builds on tooling from the wider XR ecosystem: Unity's High Definition Render Pipeline~\cite{hdrp}, the XR Interaction Toolkit~\cite{xrit}, and the OpenXR standard~\cite{openxr} for cross-platform headset support.
+
+\section{Design and Implementation}
+
+\subsection{The Lobby and Movement}
+Before reaching the solar system at all, the player spends their first moments in a small tutorial lobby next to the spaceship spawn point. This lobby exists specifically so that movement, shooting, and mode-switching are rehearsed somewhere low-stakes, before the player is expected to use them purposefully on a real planet. Floating prompts here teach, in order: how the left stick moves and the right stick turns; how A and B control vertical movement; how the grip button switches between Spaceship and Astronaut movement; how the right trigger fires the gun, which even in the lobby can already split a practice object or open an information tablet; and how the left controller's Y button opens Analysis Mode. Once comfortable, the user presses the menu button, which activates the wormhole and transports them from the lobby into the solar system proper. We treat this lobby as a first-class part of the design rather than an afterthought: because every later interaction (aiming, firing, mode-switching) is identical in the solar system itself, a user who has practised in the lobby arrives at their first planet already knowing what to do, rather than learning the controls and the content at the same time.
+
+\subsection{Solar System Layout and Scale}
+\label{sec:layout-scale}
+Rather than simulating full orbital mechanics, the solar system is laid out as a straight-line ``flight corridor'': the Sun and all eight planets sit along a single axis at increasing distance, and the player travels down this line with a spaceship controller instead of orbiting a central star. This trades astronomical accuracy in the shape of the layout for a simpler, more legible experience -- the user always knows that ``further along the corridor'' means ``further from the Sun.''
+
+Two equations govern placement and size. 
+\textbf{Distance:} the planet distances are based on the astronomical unit (AU). One AU is the average distance between Earth and the Sun, which is approximately $149.6$ million km. In the Unity scene, the Sun is placed at $X = 151.5$ and Earth is placed at $X = 301.5$. Therefore, Earth's distance from the Sun in Unity is:
+\[
+301.5 - 151.5 = 150
+\]
+This means Earth is placed about $150$ Unity units away from the Sun, matching its real average distance of about $149.6$ million km.
+
+The AU value for each planet is calculated by comparing that planet's real average distance from the Sun with Earth's distance:
+\[
+\text{AU} = \frac{\text{Planet distance from Sun}}{149.6}
+\]
+For example, Mars is about $227.9$ million km from the Sun:
+\[
+\text{Mars AU} = \frac{227.9}{149.6} \approx 1.524
+\]
+
+The scene then uses this AU value in a compressed Unity equation:
+\[
+\text{Planet}_X = 271.5 + 30 \times \text{AU}
+\]
+Here, $30$ is the compressed spacing factor, meaning each $1$ AU adds $30$ Unity units along the X-axis. The value $271.5$ is not an astronomical value; it is a Unity scene offset. It is chosen so that Earth lands at the correct position when $\text{AU} = 1$:
+\[
+\text{Earth}_X = 271.5 + 30 \times 1 = 301.5
+\]
+So, $271.5$ is used to align the compressed AU equation with Earth's actual Unity position.
+
+For Mars:
+\[
+\text{Mars}_X = 271.5 + 30 \times 1.524 = 317.22
+\]
+This same method is used for the other planets. It keeps the planets in the correct order and relative spacing, while compressing the real solar-system distances so the VR scene remains playable.
+
+\textbf{Size:} each planet's scale is its real diameter times a factor calibrated on Earth (diameter 12,742~km, Unity scale 4.2):
+\begin{equation*}
+\text{Unity planet scale} = \text{Real diameter (km)} \times \frac{4.2}{12{,}742} = \text{diameter} \times 0.0003296
+\end{equation*}.
+For example, Venus (12,104~km) scales to $3.99 \approx 4$, and Mercury (4,879~km) scales to $1.61 \approx 2$. The Sun does not use either equation as-is -- applied literally it would be far too large and far too distant from every planet to keep the scene playable -- so it is instead fixed at a visual scale of 180.
+
+\subsection{Planetary Internal Layer Visualisation}
+\label{sec:layers}
+The core teaching mechanic is a split-in-half interaction. When the user fires the laser tool and the projectile hits a split-enabled planet, the planet opens into two generated half-spheres instead of only showing a flat information panel. Each half is built from layered internal shells, where each shell represents a major internal region of the planet. One half remains near the original planet position so the user can inspect the exposed cross-section, while the other half moves away to make the internal structure easier to see. The layer ratios, boundaries, and colours are not reused identically for every planet; they are adjusted using simplified scientific models for each type of planet. Rocky planets show crust, mantle, and core layers, gas giants show atmosphere, hydrogen layers, and a core, while ice giants show atmosphere, icy mantle, and rocky core layers:
+
+\begin{itemize}
+\item \textbf{Mercury} and \textbf{Mars} -- Crust, Mantle, and an iron (or iron-sulfide, for Mars) Core, with Mercury's core occupying a much larger fraction of its radius, reflecting its unusually large metallic core.
+\item \textbf{Jupiter} and \textbf{Saturn} -- Atmosphere, Molecular Hydrogen, Metallic Hydrogen, and a small dense Core, reflecting the pressure-driven phase changes hydrogen undergoes with depth.
+\item \textbf{Uranus} and \textbf{Neptune} -- Atmosphere, an Icy Mantle (water-ammonia-methane ices), and a small rocky Core, reflecting their classification as ice giants.
+\end{itemize}
+
+The split-in-half system was first developed using Earth as the initial model. Earth was used to build and test the main idea of opening a planet into two half-spheres with visible internal layers. After this, Venus was implemented as the next planet using the same split concept, but with its own Venus layer setup. Once the Earth and Venus versions were working, the same idea was extended to the remaining six planets.
+
+For the remaining planets, a more general PlanetHalfPlanetSplitter component was created. Instead of writing a completely separate splitter script for Mercury, Mars, Jupiter, Saturn, Uranus, and Neptune, the shared splitter uses a per-planet layer list. This allows each planet to have different layer names, colours, and radius ratios while reusing the same split logic. Rocky planets use crust, mantle, and core layers; gas giants use atmosphere, hydrogen layers, and core layers; and ice giants use atmosphere, icy mantle, and core layers.
+
+The shared splitter also uses PlanetSplitMeshUtility for the half-shell, solid half-sphere, outer-surface, and material-generation logic. This avoids repeating the same mesh-generation code for every planet and makes the later planet implementations cleaner and easier to manage.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth, alt={A small rocky planet split open near the Sun, showing concentric orange and red internal layers.}]{fig_layers_mars}
+    \caption{Mars: rocky layers.}
+    \label{fig:mars-split}
+  \end{subfigure}%
+  \hfill%
+  \begin{subfigure}[b]{0.45\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth, alt={Jupiter split open, showing a tan Atmosphere ring around a purple hydrogen layer with a dark Core at the centre, with Saturn visible alongside.}]{fig_layers_jupiter}
+    \caption{Jupiter: gas-giant layers.}
+    \label{fig:jupiter-split}
+  \end{subfigure}%
+  \subfigsCaption{A rocky planet's layers (\subref{fig:mars-split}) contrasted with a gas giant's (\subref{fig:jupiter-split}).}
+  \label{fig:layer-comparison}
+\end{figure}
+
+\subsection{Interaction: Aim, Shoot, and the Hand Hologram}
+The gun is mounted on and fires from the right hand: the right trigger releases a projectile from the muzzle, and whatever it hits first is split (each splitter only acts once). The left hand aims and reads: holding the left trigger shows a targeting beam, and, independently, a continuous raycast from the left hand checks what is being pointed at and updates a small holographic panel whenever it is aimed at an exposed layer, showing the planet, the layer's short label, and a one-line description. Planet and layer identification are resolved separately -- the planet is determined first -- so a layer name reused across planets (e.g.\ ``Atmosphere,'' on Venus, Jupiter, Saturn, Uranus and Neptune) is still described correctly for whichever planet it belongs to.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\columnwidth, alt={The left-hand hologram panel reading PLANET: JUPITER, METALLIC H2, Metallic liquid hydrogen, while the green aim beam points at Jupiter's split cross-section.}]{fig_hologram_jupiter}
+  \caption{
+    The hand-hologram panel, identifying Jupiter's Metallic H2 layer as it is pointed at.
+  }
+  \label{fig:hologram}
+\end{figure}
+
+\subsection{Modes of Interaction}
+Beyond splitting planets open, a dedicated Analysis Mode, toggled with the left controller's Y button, pauses movement and gun input and opens a menu with three pages: \textbf{Distance}, where the user aims at two planets in turn to select them and see the distance between them. The distance between two selected planets is calculated using their actual 3D positions in the Unity scene. If the two selected planets are Planet A and Planet B, the Unity distance is calculated as:
+
+\vspace{0.4em}
+\[
+d_{\text{Unity}} =
+\texttt{Vector3.Distance}(\text{PlanetA}, \text{PlanetB})
+\]
+\vspace{0.4em}
+Here, \texttt{PlanetA} and \texttt{PlanetB} refer to the position vectors of the two selected planets.
+
+The Unity distance is then converted into kilometres using the project conversion factor:
+
+\vspace{0.4em}
+\[
+d_{\text{km}} = d_{\text{Unity}} \times 1{,}000{,}000
+\]
+\vspace{0.4em}
+
+\textbf{Compare}, where two selected planets are shown side by side with animated bar charts comparing their atmospheric/compositional makeup; and \textbf{Moons}, where aiming at one planet shows its moons, using a scientifically accurate total count alongside a reduced, ratio-based number of visual orbiting models chosen to stay legible in VR.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth, alt={Distance mode panel reading Earth - Saturn, Distance: 242532500 km, Next planet shifts the pair, with Saturn visible ahead.}]{fig_mode_distance}
+    \caption{Distance.}
+    \label{fig:mode-distance}
+  \end{subfigure}%
+  \hfill%
+  \begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth, alt={Compare mode panel titled Atmospheric Gases (\%), showing side-by-side bar charts of Earth's and Venus's atmospheric composition.}]{fig_mode_compare}
+    \caption{Compare.}
+    \label{fig:mode-compare}
+  \end{subfigure}%
+  \\%
+  \begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth, alt={Moons mode panel titled Saturn Moons, reading Total moons in the 8-planet system: 422, Saturn: 274 moons, with Saturn and its ring of moon models visible.}]{fig_mode_moons}
+    \caption{Moons.}
+    \label{fig:mode-moons}
+  \end{subfigure}%
+  \subfigsCaption{The three Analysis Mode pages: \subref{fig:mode-distance}, \subref{fig:mode-compare}, and \subref{fig:mode-moons}.}
+  \label{fig:modes}
+\end{figure}
+
+Outside Analysis Mode, the user moves freely in one of two flight modes toggled with the grip button: a third-person Spaceship mode for fast travel, and an Astronaut mode for slower free movement close to a planet.
+
+\subsection{Asteroid Belt}
+\label{sec:asteroid-belt}
+Using the effective 30-units-per-AU factor, Mars's 1.524 AU and Jupiter's 5.203 AU positions translate to scene X-coordinates of 317.22 and 427.59, matching their placement in the Unity scene. The asteroid belt is then generated procedurally between Mars and Jupiter rather than being placed as a fixed line of objects. In the current implementation, the belt generator finds the distance from the Sun to Mars and Jupiter, then places asteroids within a radial band between those two distances. This keeps the belt visually located between Mars and Jupiter while remaining practical for the VR scene.
+
+The asteroids are created as many small sphere-based objects with randomized size, stretched scale, colour, height offset, and rotation. This makes them appear varied and irregular instead of identical plain spheres. Each asteroid also slowly orbits around the Sun and spins around its own random axis, giving the belt continuous motion during gameplay.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\columnwidth, alt={Small dark asteroid rocks scattered in the gap between the Sun and Jupiter, with Jupiter visible for scale.}]{fig_asteroid_belt}
+  \caption{
+    The procedurally generated asteroid belt, placed at its real proportional distance between Mars and Jupiter.
+  }
+  \label{fig:asteroid-belt}
+\end{figure}
+
+\subsection{Development Environment and Tools}
+The project is built in Unity 6 (Editor version 6000.4.5f1) using the High Definition Render Pipeline (17.4.0) for rendering, the XR Interaction Toolkit (3.4.1) and Input System (1.19.0) packages for controller interaction, and both the Oculus XR Plugin (4.5.4) and OpenXR Plugin (1.17.0) so the same build can target Quest-style controllers through either runtime. Version control is Git, with Git LFS handling large binary assets (textures, audio, HDRI skyboxes) and GitHub hosting the shared repository; the team worked across separate feature branches and merged back into a shared main branch. This report itself is written in \LaTeX{} using the IEEE VGTC/TVCG journal template.
+
+\section{Discussion}
+
+The project's main strength is treating each planet's interior as scientifically specific rather than a single reused template, while keeping one consistent split-then-inspect interaction across all eight bodies and one shared mesh-generation utility rather than duplicating near-identical code per planet. This distinguishes it from prior solar-system games such as Space Rift~\cite{pena} and Fang and Hlavacs' game~\cite{fang}, which pair exploration with informational panels rather than a physically interactive cross-section, and connects it to scale-focused solar-system visualisation work such as Yu et al.~\cite{yu2017}.
+
+The clearest lesson from building the project is that a shared, parameterised system for a family of similar objects pays for itself once several variants are added. In our case, using one splitter component for six planets required more planning at the beginning, but it became much easier to extend and maintain than writing separate near-identical code for every planet. This was especially useful because each planet still needed its own scientific layer structure, colours, and proportions, while the basic split-and-inspect behaviour remained the same.
+
+Another important lesson was that testing only with mouse and keyboard in the Unity Editor was not enough. Many issues became clear only when the project was tested on the actual VR headset, such as hand-relative UI placement, controller mapping, aiming comfort, and how natural the spaceship and astronaut modes felt. Features such as the hand hologram and grip-based mode switching depended strongly on real tracked controllers, so headset testing became an essential part of development rather than just a final demonstration step.
+
+The project also showed the practical difficulty of working with a shared Unity scene. Code changes can be reviewed line by line, but scene changes are more visual and spatial: a planet may move, a prefab reference may change, or an object may be disabled without being obvious in a normal code review. Because of this, merging parallel work required careful manual checking inside Unity. Overall, the project demonstrates that a VR solar-system experience can go beyond passive viewing by letting users actively open, inspect, compare, and explore planets through direct interaction.
+
+\section{Limitations and Future Work}
+\begin{itemize}
+\item The flight-corridor layout does not represent orbital motion; adding real orbital movement around the Sun is the natural next step.
+
+\item The lobby tutorial can be made more interactive. At present, users may still find the controls difficult because the project includes several different actions, such as spaceship movement, astronaut movement, shooting, hologram inspection, Analysis Mode, and wormhole travel. A future version could turn the lobby into a mission-based tutorial, where the user must complete small tasks before entering the solar system. For example, the user could first move forward, then turn, move up and down, switch between Spaceship and Astronaut mode, aim at a practice object, shoot it, and finally open the wormhole. This would help users learn the controls through action rather than only reading instructions.
+
+\item The lobby could also include visual controller guides. Since VR users cannot always see the physical controller clearly while wearing the headset, floating images or diagrams of the Meta Quest controllers could be placed in the lobby. These images could label the important buttons, such as the trigger, grip button, thumbsticks, A/B buttons, and menu button. This would make the control system easier to understand, especially for first-time VR users.
+
+\item Controller vibration could be added to improve immersion and feedback. For example, the controller could vibrate when the user fires the gun, hits a planet, selects an Analysis Mode option, enters the wormhole, or points at an internal layer. This would make the interaction feel more physical and responsive, instead of relying only on visual feedback.
+
+\item Rendering every real moon around Jupiter or Saturn would look crowded in VR, so Moons mode uses a reduced, ratio-based visual count; extending the split-and-inspect mechanic itself to major moons, such as Earth's Moon, the Galilean moons, and Titan, as fully splittable bodies is a natural extension.
+
+\item The asteroid belt currently stops at Jupiter; a second, sparser Kuiper Belt beyond Neptune and dwarf planets such as Pluto would extend the same distance-derivation approach.
+
+\item With the core experience validated on-device, the next step is a structured learning-outcome study with real participants, following Saputro and Setyawan~\cite{saputro2020} and Urhan and Akpinar~\cite{urhan2024}, and eventually multiplayer support in the spirit of Mukhtar et al.~\cite{mukhtar2019}.
+\end{itemize}
+
+\section{Work Distribution in the Team}
+\textbf{Nikhil:} gun-triggered split interaction and the hologram's real-time layer detection across planets; repository recovery and branch/merge management; report writing.
+\textbf{Shubham:} procedural internal-layer structure for Mercury, Mars, Jupiter, Saturn, Uranus and Neptune, the shared mesh utility, and the Main Asteroid Belt.
+\textbf{Aldrin:} original scene and distance layout, Earth/Venus layer prototypes, spaceship and wormhole systems, Analysis Mode, and the lobby tutorial.
+\textbf{All:} playtesting and in-headset validation.
+
+\section{Conclusions}
+We built a VR application that turns planetary internal structure into something a user can walk up to, split open, and inspect layer by layer, rather than read about in a diagram. All eight planets have scientifically-grounded internal layers, a consistent aim-and-fire interaction reveals them, and an Analysis Mode lets users compare planets, measure distances, and explore moons -- all confirmed working on real VR hardware. The next steps are orbital motion, extending the same mechanic to moons and dwarf planets, and a structured study of what users actually learn from it.
+
+\section*{Acknowledgments and Disclosure of Funding}
+\textbf{Use of AI.} A large language model was used as an assistive tool to rephrase and copy-edit our own draft text and to help format LaTeX entries. All technical content, claims, and the critical analysis are our own.
+
+\bibliographystyle{abbrv-doi-hyperref}
+\bibliography{VR_Solar_System_Report}
+
+\end{document}
